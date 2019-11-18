@@ -1,0 +1,1 @@
+[{"affiliateid":"12","zonename":"khulasa-news-vast-0x0","description":"khulasa-news-vast-0x0","delivery":"html","zonetype":false,"width":"0","height":"0","comments":false,"updated":"2019-09-27 11:38:37"}]

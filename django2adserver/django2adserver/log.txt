@@ -1,0 +1,1000 @@
+    7  2019-08-02 11:33:41 python manage.py runserver 139.59.67.0:8000
+    8  2019-08-02 11:42:58 python manage.py makemigrations
+    9  2019-08-02 11:45:35 python manage.py migrate
+   10  2019-08-02 11:46:19 python manage.py makemigrations inventory
+   11  2019-08-02 11:46:27 python manage.py migrate inventory
+   12  2019-08-02 11:51:21 python manage.py makemigrations
+   13  2019-08-02 11:51:33 python manage.py migrate
+   14  2019-08-02 11:51:49 python manage.py makemigrations inventory
+   15  2019-08-02 11:51:58 python manage.py migrate inventory
+   16  2019-08-02 11:52:23 python manage.py runserver 139.59.67.0:8000
+   17  2019-08-02 11:52:37 python manage.py createsuperuser
+   18  2019-08-02 11:52:57 python manage.py runserver 139.59.67.0:8000
+   19  2019-08-02 13:10:57 python manage.py makemigrations
+   20  2019-08-02 13:11:07 python manage.py migrate
+   21  2019-08-02 13:11:18 python manage.py runserver 139.59.67.0:8000
+   22  2019-08-02 13:19:16 python manage.py makemigrations
+   23  2019-08-02 13:19:23 python manage.py migrate
+   24  2019-08-02 13:19:29 python manage.py runserver 139.59.67.0:8000
+   25  2019-08-02 13:43:23 python manage.py makemigrations
+   26  2019-08-02 13:43:43 python manage.py migrate
+   27  2019-08-02 13:44:05 python manage.py runserver 139.59.67.0:8000
+   28  2019-08-02 10:27:12 cd django2adserver
+   29  2019-08-02 10:27:44 python manage.py runserver 139.59.67.0:8000
+   30  2019-08-02 10:28:07 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   31  2019-08-02 10:28:10 python manage.py runserver 139.59.67.0:8000
+   32  2019-08-05 10:23:39 cd django2adserver
+   33  2019-08-05 10:25:24 python manage.py runserver 139.59.67.0:8000
+   34  2019-08-05 10:25:52 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   35  2019-08-05 10:25:57 python manage.py runserver 139.59.67.0:8000
+   36  2019-08-05 12:59:27 cd django2adserver
+   37  2019-08-05 12:59:40 python manage.py runserver 139.59.67.0:8000
+   38  2019-08-05 13:00:10 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   39  2019-08-05 13:00:13 python manage.py runserver 139.59.67.0:8000
+   40  2019-08-05 15:56:33 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   41  2019-08-05 15:56:36 cd django2adserver
+   42  2019-08-05 15:56:38 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   43  2019-08-05 15:56:42 python manage.py runserver 139.59.67.0:8000
+   44  2019-08-05 14:40:47 cd django2adserver
+   45  2019-08-05 14:40:55 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   46  2019-08-05 14:41:20 python manage.py runserver 139.59.67.0:8000
+   47  2019-08-06 10:33:28 cd django2adserver
+   48  2019-08-06 10:33:37 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   49  2019-08-06 10:33:48 python manage.py runserver 139.59.67.0:8000
+   50  2019-08-07 11:21:02 cd django2adserver
+   51  2019-08-07 11:21:06 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   52  2019-08-07 11:21:09 python manage.py runserver 139.59.67.0:8000
+   53  2019-08-07 14:46:26 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   54  2019-08-07 14:46:31 cd django2adserver
+   55  2019-08-07 14:46:37 python manage.py runserver 139.59.67.0:8000
+   56  2019-08-07 15:31:23 cd django2adserver
+   57  2019-08-07 16:10:46 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   58  2019-08-07 16:11:10 python manage.py runserver 139.59.67.0:8000
+   59  2019-08-08 10:50:06 cd django2adserver
+   60  2019-08-08 10:50:18 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   61  2019-08-08 10:50:30 python manage.py runserver 139.59.67.0:8000
+   62  2019-08-08 18:14:32 cd django2adserver
+   63  2019-08-08 18:14:40 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   64  2019-08-08 18:14:48 python manage.py runserver 139.59.67.0:8000
+   65  2019-08-08 18:24:09 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   66  2019-08-08 18:24:11 python manage.py runserver 139.59.67.0:8000
+   67  2019-08-08 18:24:18 cd django2adserver/
+   68  2019-08-08 18:24:29 python manage.py runserver 139.59.67.0:8000
+   69  2019-08-08 18:49:42 python manage.py makemigrations
+   70  2019-08-08 18:50:31 python manage.py migrate
+   71  2019-08-08 18:51:11 python manage.py runserver 139.59.67.0:8000
+   72  2019-08-08 18:52:56 python manage.py makemigrations
+   73  2019-08-08 18:53:02 python manage.py migrate
+   74  2019-08-08 18:56:26 python manage.py runserver 139.59.67.0:8000
+   75  2019-08-09 10:56:18 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   76  2019-08-09 10:56:21 python manage.py runserver 139.59.67.0:8000
+   77  2019-08-09 10:56:27 cd django2adserver/
+   78  2019-08-09 10:56:30 python manage.py runserver 139.59.67.0:8000
+   79  2019-08-09 10:57:01 python manage.py makemigrations
+   80  2019-08-09 10:57:11 python manage.py migrate
+   81  2019-08-09 10:57:19 python manage.py runserver 139.59.67.0:8000
+   82  2019-08-09 10:59:53 python manage.py makemigrations
+   83  2019-08-09 10:59:59 python manage.py migrate
+   84  2019-08-09 11:00:04 python manage.py runserver 139.59.67.0:8000
+   85  2019-08-09 11:02:18 python manage.py makemigrations
+   86  2019-08-09 11:02:26 python manage.py migrate
+   87  2019-08-09 11:03:06 python manage.py makemigrations
+   88  2019-08-09 11:03:11 python manage.py migrate
+   89  2019-08-09 11:03:19 python manage.py runserver 139.59.67.0:8000
+   90  2019-08-09 10:29:38 cd django2adserver
+   91  2019-08-09 10:29:49 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   92  2019-08-09 10:30:07 python manage.py runserver 139.59.67.0:8000
+   93  2019-08-09 14:48:39 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   94  2019-08-09 14:48:43 cd django2adserver/
+   95  2019-08-09 14:48:46 python manage.py runserver 139.59.67.0:8000
+   96  2019-08-12 10:38:49 cd django2adserver/
+   97  2019-08-12 10:38:52 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+   98  2019-08-12 10:38:55 python manage.py runserver 139.59.67.0:8000
+   99  2019-08-12 17:25:32 w
+  100  2019-08-12 17:25:34 top
+  101  2019-08-12 17:25:35 w
+  102  2019-08-12 17:25:44 ps -auxfg
+  103  2019-08-12 17:27:49 top
+  104  2019-08-12 17:27:55 systemctl status lsws
+  105  2019-08-12 17:28:19 free -m
+  106  2019-08-12 17:28:22 top
+  107  2019-08-12 17:29:09 netstat -anp |grep 'tcp\|udp' | awk '{print $5}'| cut -d: -f1 | sort | uniq -c |sort -n
+  108  2019-08-12 17:29:16 netstat -plan|grep TIME_WAIT |awk {'print $5'}|cut -d: -f 1|sort|uniq -c|sort -nk 1
+  109  2019-08-12 17:29:21 netstat -plan|grep SYN_RECV |awk {'print $5'}|cut -d: -f 1|sort|uniq -c|sort -nk 1
+  110  2019-08-12 17:30:56 netstat -plan|grep TIME_WAIT |awk {'print $5'}|cut -d: -f 1|sort|uniq -c|sort -nk 1
+  111  2019-08-12 17:31:10 netstat -nap | grep :80 | wc -l
+  112  2019-08-12 17:31:14 netstat -nap | grep :443 | wc -l
+  113  2019-08-12 17:31:21 netstat -nap | grep :80 | wc -l
+  114  2019-08-12 17:31:32 netstat -nap | grep :80 
+  115  2019-08-12 17:31:49 csf -g 1123
+  116  2019-08-12 17:31:55 vi /etc/csf/csf.conf 
+  117  2019-08-12 17:32:14 csf -r
+  118  2019-08-12 17:32:21 top
+  119  2019-08-12 12:50:42 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  120  2019-08-12 12:50:46 cd django2adserver/
+  121  2019-08-12 12:50:49 python manage.py runserver 139.59.67.0:8000
+  122  2019-08-12 16:16:56 top -cd3
+  123  2019-08-12 16:24:57 free -m
+  124  2019-08-12 16:25:50 vi /usr/local/apache/conf/httpd.conf 
+  125  2019-08-12 16:27:03 cd /home/khulasanews/public_html/
+  126  2019-08-12 16:27:04 ll
+  127  2019-08-12 16:27:10 vi .htaccess
+  128  2019-08-12 16:32:54 cat /proc/cpuinfo 
+  129  2019-08-12 16:41:08 top -cd3
+  130  2019-08-12 16:41:24 ll
+  131  2019-08-12 16:41:27 cd ..
+  132  2019-08-12 16:41:30 cd access-logs/
+  133  2019-08-12 16:41:31 ll
+  134  2019-08-12 16:41:42 tail -f khulasa-news.com-ssl_log
+  135  2019-08-12 16:42:10 top- cd3
+  136  2019-08-12 17:04:36 ll
+  137  2019-08-12 17:22:30 cat /proc/cpuinfo 
+  138  2019-08-12 17:22:40 top -cd3
+  139  2019-08-12 17:24:42 fr
+  140  2019-08-12 17:25:47 w
+  141  2019-08-12 17:34:10 netstat -atun | awk '{print $5}' | cut -d: -f1 | sed -e '/^$/d' |sort | uniq -c | sort -n
+  142  2019-08-12 17:34:27 netstat -nap | grep :80 | wc -l
+  143  2019-08-12 17:34:38 netstat -nap | grep :443 | wc -l
+  144  2019-08-12 17:34:47 netstat -nap | grep :8000 | wc -l
+  145  2019-08-12 17:34:53 netstat -nap | wc -l
+  146  2019-08-13 11:15:46 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  147  2019-08-13 11:16:00 cd django2adserver/
+  148  2019-08-13 11:16:13 python manage.py runserver 139.59.67.0:8000
+  149  2019-08-13 11:51:39 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  150  2019-08-13 11:51:41 cd django2adserver/
+  151  2019-08-13 11:51:45 python manage.py runserver 139.59.67.0:8000
+  152  2019-08-13 12:09:05 python manage.py makemigrations
+  153  2019-08-13 12:09:17 python manage.py migrate
+  154  2019-08-13 12:09:35 python manage.py runserver 139.59.67.0:8000
+  155  2019-08-13 14:02:15 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  156  2019-08-13 14:02:20 cd django2adserver/
+  157  2019-08-13 14:02:23 python manage.py runserver 139.59.67.0:8000
+  158  2019-08-13 14:32:53 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  159  2019-08-13 14:32:56 cd django2adserver/
+  160  2019-08-13 14:33:02 python manage.py runserver 139.59.67.0:8000
+  161  2019-08-13 14:28:36 cd django2adserver
+  162  2019-08-13 14:28:57 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  163  2019-08-13 14:29:08 python manage.py runserver 139.59.67.0:8000
+  164  2019-08-13 15:02:56 top
+  165  2019-08-13 15:03:15 free -m
+  166  2019-08-13 15:03:16 top
+  167  2019-08-13 15:06:56 cat /etc/my.cnf
+  168  2019-08-13 15:07:03 mysql
+  169  2019-08-13 15:07:13 mysqladmin variables | grep timout
+  170  2019-08-13 15:07:15 mysqladmin variables | grep timeout
+  171  2019-08-13 15:07:56 cat /etc/my.cnf
+  172  2019-08-13 15:08:04 netstat -nap | grep :80 | wc -l
+  173  2019-08-13 15:08:09 netstat -nap | grep :443 | wc -l
+  174  2019-08-13 15:08:12 top
+  175  2019-08-13 15:09:37 cd /home/khulasanews/access-logs/
+  176  2019-08-13 15:09:38 ll
+  177  2019-08-13 15:09:47 tail -f hindi.khulasa-news.com-ssl_log 
+  178  2019-08-13 15:10:11 top
+  179  2019-08-13 16:12:11 ll
+  180  2019-08-13 16:12:15 tail -f hindi.khulasa-news.com-ssl_log
+  181  2019-08-13 16:13:04 vi /etc/csf/csf.conf 
+  182  2019-08-13 16:13:25 netstat -nalp | grep :80
+  183  2019-08-13 16:13:44 vi /etc/csf/csf.conf 
+  184  2019-08-13 16:13:59 csf -r
+  185  2019-08-13 16:14:09 netstat -plan|grep SYN_RECV |awk {'print $5'}|cut -d: -f 1|sort|uniq -c|sort -nk 1
+  186  2019-08-13 16:14:15 vi /etc/csf/csf.conf 
+  187  2019-08-13 16:14:24 csf -r
+  188  2019-08-13 16:14:27 175.176.41.46
+  189  2019-08-13 16:14:29 netstat -plan|grep SYN_RECV |awk {'print $5'}|cut -d: -f 1|sort|uniq -c|sort -nk 1
+  190  2019-08-13 16:14:33 csf -td 175.176.41.46
+  191  2019-08-13 16:14:36 csf -td 110.54.206.207
+  192  2019-08-13 16:14:42 top
+  193  2019-08-13 15:51:36 cd django2adserver
+  194  2019-08-13 15:51:51 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  195  2019-08-13 15:52:06 python manage.py runserver 139.59.67.0:8000
+  196  2019-08-13 15:03:59 nproc 
+  197  2019-08-13 15:04:03 free -h
+  198  2019-08-13 15:17:59 w
+  199  2019-08-13 15:18:04 sar -q
+  200  2019-08-13 15:18:12 sync; echo 3 > /proc/sys/vm/drop_caches
+  201  2019-08-13 15:18:16 w
+  202  2019-08-13 15:18:19 top -c
+  203  2019-08-13 15:25:44 uptime
+  204  2019-08-13 15:25:46 sar -q
+  205  2019-08-13 15:25:48 q
+  206  2019-08-13 15:25:50 w
+  207  2019-08-13 15:25:53 uptime
+  208  2019-08-13 15:26:01 cat /var/log/messages | grep memory
+  209  2019-08-13 15:36:22 hostname -i
+  210  2019-08-13 15:36:24 w
+  211  2019-08-13 15:36:35 free -h
+  212  2019-08-13 15:36:37 sync; echo 3 > /proc/sys/vm/drop_caches
+  213  2019-08-13 15:36:39 free -h
+  214  2019-08-13 15:36:45 sync; echo 3 > /proc/sys/vm/drop_caches
+  215  2019-08-13 15:36:46 free -h
+  216  2019-08-13 15:36:54 sync; echo 2 > /proc/sys/vm/drop_caches
+  217  2019-08-13 15:36:56 free -h
+  218  2019-08-13 15:37:01 sync; echo 1 > /proc/sys/vm/drop_caches
+  219  2019-08-13 15:37:03 free -h
+  220  2019-08-13 15:37:05 w
+  221  2019-08-13 15:37:09  exim -bpc
+  222  2019-08-13 15:37:17 exim -bp | grep "<>" | awk '{system("exim -Mrm "$3)}'  
+  223  2019-08-13 15:37:23 exim -bpc
+  224  2019-08-13 15:37:24 w
+  225  2019-08-13 15:37:27 top -c
+  226  2019-08-13 16:11:05 nproc 
+  227  2019-08-13 16:11:09 free -h
+  228  2019-08-13 16:11:14 free -m
+  229  2019-08-13 16:11:17 free -h
+  230  2019-08-13 16:11:22 nproc 
+  231  2019-08-13 16:11:24 w
+  232  2019-08-13 16:12:35 top -
+  233  2019-08-13 16:12:36 top -c
+  234  2019-08-13 16:15:44 /scripts/whoowns khulasanews.com
+  235  2019-08-13 16:16:15 cd /home/khulasanews
+  236  2019-08-13 16:16:16 ll
+  237  2019-08-13 16:16:18 cd public_html/
+  238  2019-08-13 16:16:19 ll
+  239  2019-08-13 16:16:24 cd hindi.khulasanews.com/
+  240  2019-08-13 16:16:25 ll
+  241  2019-08-13 16:16:41 cd ..
+  242  2019-08-13 16:16:41 ll
+  243  2019-08-13 16:16:43 cd ..
+  244  2019-08-13 16:16:44 ll
+  245  2019-08-13 16:16:46 cd access-logs/
+  246  2019-08-13 16:16:47 ll
+  247  2019-08-13 16:16:51 tail -f hindi.khulasa-news.com
+  248  2019-08-13 16:18:17 top -c
+  249  2019-08-13 18:09:41 cd django2adserver
+  250  2019-08-13 18:09:59 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  251  2019-08-13 18:10:14 python manage.py runserver 139.59.67.0:8000
+  252  2019-08-14 11:57:19 cd django2adserver
+  253  2019-08-14 11:57:21 python manage.py runserver 139.59.67.0:8000
+  254  2019-08-14 11:57:26 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  255  2019-08-14 11:57:28 python manage.py runserver 139.59.67.0:8000
+  256  2019-08-14 14:20:20 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  257  2019-08-14 14:20:24 cd django2adserver
+  258  2019-08-14 14:20:28 python manage.py runserver 139.59.67.0:8000
+  259  2019-08-14 15:37:50 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  260  2019-08-14 15:37:52 cd django2adserver
+  261  2019-08-14 15:37:54 python manage.py runserver 139.59.67.0:8000
+  262  2019-08-16 11:45:25 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  263  2019-08-16 11:45:30 cd django2adserver
+  264  2019-08-16 11:45:34 python manage.py runserver 139.59.67.0:8000
+  265  2019-08-16 13:52:32 cd django2adserver
+  266  2019-08-16 13:52:42 running server on: http://139.59.67.0:8000
+  267  2019-08-16 13:52:54 python manage.py runserver 139.59.67.0:8000
+  268  2019-08-16 13:53:04 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  269  2019-08-16 13:53:13 python manage.py runserver 139.59.67.0:8000
+  270  2019-08-16 15:45:24 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  271  2019-08-16 15:45:28 cd django2adserver
+  272  2019-08-16 15:45:30 python manage.py runserver 139.59.67.0:8000
+  273  2019-08-16 16:57:18 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  274  2019-08-16 16:57:20 cd django2adserver
+  275  2019-08-16 16:57:22 python manage.py runserver 139.59.67.0:8000
+  276  2019-08-16 14:30:02 cd django2adserver
+  277  2019-08-16 14:30:32 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  278  2019-08-16 14:30:45 python manage.py runserver 139.59.67.0:8000
+  279  2019-08-16 17:56:25 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  280  2019-08-16 17:56:28 cd django2adserver
+  281  2019-08-16 17:56:30 python manage.py runserver 139.59.67.0:8000
+  282  2019-08-19 10:27:52 cd django2adserver
+  283  2019-08-19 10:27:59 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  284  2019-08-19 10:28:09 python manage.py runserver 139.59.67.0:8000
+  285  2019-08-19 12:13:46 cd django2adserver
+  286  2019-08-19 12:13:48 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  287  2019-08-19 12:13:50 python manage.py runserver 139.59.67.0:8000
+  288  2019-08-19 13:55:45 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  289  2019-08-19 13:55:48 cd django2adserver
+  290  2019-08-19 13:55:50 python manage.py runserver 139.59.67.0:8000
+  291  2019-08-19 18:36:53 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  292  2019-08-19 18:36:54 cd django2adserver
+  293  2019-08-19 18:36:56 python manage.py runserver 139.59.67.0:8000
+  294  2019-08-20 15:27:51 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  295  2019-08-20 15:27:53 cd django2adserver
+  296  2019-08-20 15:27:54 python manage.py runserver 139.59.67.0:8000
+  297  2019-08-20 15:36:40 cd django2adserver
+  298  2019-08-20 15:36:53 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  299  2019-08-20 15:37:03 python manage.py runserver 139.59.67.0:8000
+  300  2019-08-20 15:10:12 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  301  2019-08-20 15:10:14 cd django2adserver
+  302  2019-08-20 15:10:16 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  303  2019-08-20 15:10:26 python manage.py runserver 139.59.67.0:8000
+  304  2019-08-20 15:41:09 cd -
+  305  2019-08-20 15:41:13 cd /home
+  306  2019-08-20 15:41:14 ll
+  307  2019-08-20 15:41:18 cd khulasanews
+  308  2019-08-20 15:41:19 ll
+  309  2019-08-20 15:41:21 cd public_html
+  310  2019-08-20 15:41:22 ll
+  311  2019-08-20 15:41:32 vi .htaccess
+  312  2019-08-20 17:19:10 w
+  313  2019-08-20 17:19:11 top
+  314  2019-08-20 17:19:43 cat /proc/cpuinfo 
+  315  2019-08-20 17:19:45 top
+  316  2019-08-20 17:20:08 cat /var/log/messages | grep memory
+  317  2019-08-20 17:26:03 top
+  318  2019-08-20 17:26:05 w
+  319  2019-08-20 17:26:07 top
+  320  2019-08-20 17:43:03 netstat -nap | grep :443 | wc -l
+  321  2019-08-20 17:43:07 netstat -nap | grep :80 | wc -l
+  322  2019-08-20 17:43:15 top
+  323  2019-08-20 17:50:09 cat /proc/cpuinfo 
+  324  2019-08-20 17:50:11 top
+  325  2019-08-20 17:54:42 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  326  2019-08-20 17:54:59 cd django2adserver
+  327  2019-08-20 17:55:06 python manage.py runserver 139.59.67.0:8000
+  328  2019-08-20 18:21:01 python manage.py makemigrations
+  329  2019-08-20 18:21:20 python manage.py migrate
+  330  2019-08-20 18:35:44 python manage.py runserver 139.59.67.0:8000
+  331  2019-08-21 10:12:11 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  332  2019-08-21 10:12:16 cd django2adserver
+  333  2019-08-21 10:12:20 python manage.py runserver 139.59.67.0:8000
+  334  2019-08-21 11:12:56 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  335  2019-08-21 11:12:57 python manage.py runserver 139.59.67.0:8000
+  336  2019-08-21 11:13:01 cd django2adserver
+  337  2019-08-21 11:13:02 python manage.py runserver 139.59.67.0:8000
+  338  2019-08-21 10:23:36 top
+  339  2019-08-21 11:37:43 free -m
+  340  2019-08-21 11:39:59 df -h
+  341  2019-08-21 11:48:12 host 23.111.148.162
+  342  2019-08-21 12:41:40 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  343  2019-08-21 12:41:44 cd django2adserver
+  344  2019-08-21 12:41:48 python manage.py runserver 139.59.67.0:8000
+  345  2019-08-21 14:40:54 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  346  2019-08-21 14:40:57 cd django2adserver
+  347  2019-08-21 14:40:59 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  348  2019-08-21 14:41:13 python manage.py runserver 139.59.67.0:8000
+  349  2019-08-21 15:03:34 python manage.py runserver makemigrations
+  350  2019-08-21 15:03:46 python manage.py makemigrations
+  351  2019-08-21 15:04:29 python manage.py runserver 139.59.67.0:8000
+  352  2019-08-21 18:14:09 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  353  2019-08-21 18:14:22 cd django2adserver
+  354  2019-08-21 18:14:25 python manage.py runserver 139.59.67.0:8000
+  355  2019-08-22 14:33:22 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  356  2019-08-22 14:33:25 cd django2adserver
+  357  2019-08-22 14:33:28 python manage.py runserver 139.59.67.0:8000
+  358  2019-08-22 15:07:41 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  359  2019-08-22 15:07:44 cd django2adserver
+  360  2019-08-22 15:07:47 python manage.py runserver 139.59.67.0:8000
+  361  2019-08-22 15:32:50 top
+  362  2019-08-22 16:17:18 check cpu usage
+  363  2019-08-22 15:39:09 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  364  2019-08-22 15:39:11 cd django2adserver
+  365  2019-08-22 15:39:13 python manage.py runserver 139.59.67.0:8000
+  366  2019-08-22 17:26:10 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  367  2019-08-22 17:26:12 cd django2adserver
+  368  2019-08-22 17:26:14 python manage.py runserver 139.59.67.0:8000
+  369  2019-08-22 18:26:29 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  370  2019-08-22 18:26:31 cd django2adserver
+  371  2019-08-22 18:26:33 python manage.py runserver 139.59.67.0:8000
+  372  2019-08-22 18:42:07 cd django2adserver
+  373  2019-08-22 18:42:17 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  374  2019-08-22 18:42:27 python manage.py runserver 139.59.67.0:8000
+  375  2019-08-23 10:30:53 cd django2adserver
+  376  2019-08-23 10:31:09 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  377  2019-08-23 10:31:30 python manage.py runserver 139.59.67.0:8000
+  378  2019-08-23 10:44:49 django2adserver
+  379  2019-08-23 10:44:55 cd django2adserver
+  380  2019-08-23 10:45:06 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  381  2019-08-23 10:45:15 python manage.py runserver 139.59.67.0:8000
+  382  2019-08-23 11:54:54 cd django2adserver
+  383  2019-08-23 11:55:05 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  384  2019-08-23 11:55:16 python manage.py runserver 139.59.67.0:8000
+  385  2019-08-23 12:57:59 cd django2adserver
+  386  2019-08-23 12:58:10 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  387  2019-08-23 12:58:18 python manage.py runserver 139.59.67.0:8000
+  388  2019-08-23 14:27:17 cd django2adserver
+  389  2019-08-23 14:27:34 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  390  2019-08-23 14:27:47 python manage.py runserver 139.59.67.0:8000
+  391  2019-08-23 15:08:31 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  392  2019-08-23 15:08:34 cd django2adserver
+  393  2019-08-23 15:08:37 python manage.py runserver 139.59.67.0:8000
+  394  2019-08-23 15:15:42 python manage.py makemigrations
+  395  2019-08-23 15:15:52 python manage.py migrate
+  396  2019-08-23 15:15:59 python manage.py runserver 139.59.67.0:8000
+  397  2019-08-23 17:07:18 Miles@JMM098
+  398  2019-08-23 18:24:42 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  399  2019-08-23 18:24:45 cd django2adserver
+  400  2019-08-23 18:24:48 python manage.py runserver 139.59.67.0:8000
+  401  2019-08-25 19:25:05 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  402  2019-08-25 19:25:16 python manage.py runserver 139.59.67.0:8000
+  403  2019-08-25 19:25:33 cd django2adserver
+  404  2019-08-25 19:25:36 python manage.py runserver 139.59.67.0:8000
+  405  2019-08-26 11:02:46 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  406  2019-08-26 11:02:49 cd django2adserver
+  407  2019-08-26 11:02:51 python manage.py runserver 139.59.67.0:8000
+  408  2019-08-26 14:22:54 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  409  2019-08-26 14:22:56 cd django2adserver
+  410  2019-08-26 14:23:00 python manage.py runserver 139.59.67.0:8000
+  411  2019-08-26 17:48:07 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  412  2019-08-26 17:48:10 cd django2adserver
+  413  2019-08-26 17:48:12 python manage.py runserver 139.59.67.0:8000
+  414  2019-08-27 10:18:12 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  415  2019-08-27 10:18:28 cd django2adserver
+  416  2019-08-27 10:19:31 python manage.py runserver 139.59.67.0:8000
+  417  2019-08-27 14:26:23 cd django2adserver
+  418  2019-08-27 14:26:36 python manage.py runserver 139.59.67.0:8000
+  419  2019-08-27 14:26:44 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  420  2019-08-27 14:26:53 python manage.py runserver 139.59.67.0:8000
+  421  2019-08-27 15:36:42 cd django2adserver
+  422  2019-08-27 15:36:54 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  423  2019-08-27 15:37:04 python manage.py runserver 139.59.67.0:8000
+  424  2019-08-27 17:34:15 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  425  2019-08-27 17:34:21 cd django2adserver
+  426  2019-08-27 17:34:23 python manage.py runserver 139.59.67.0:8000
+  427  2019-08-28 10:51:48 cd django2adserver
+  428  2019-08-28 10:51:56 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  429  2019-08-28 10:52:04 python manage.py runserver 139.59.67.0:8000
+  430  2019-08-28 12:50:37 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  431  2019-08-28 12:50:39 cd django2adserver
+  432  2019-08-28 12:50:42 python manage.py runserver 139.59.67.0:8000
+  433  2019-08-28 13:52:32 cd django2adserver
+  434  2019-08-28 13:52:41 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  435  2019-08-28 13:52:47 python manage.py runserver 139.59.67.0:8000
+  436  2019-08-28 14:38:08 cd django2adserver
+  437  2019-08-28 14:38:11 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  438  2019-08-28 14:38:15 python manage.py runserver 139.59.67.0:8000
+  439  2019-08-28 16:46:04 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  440  2019-08-28 16:46:09 cd django2adserver
+  441  2019-08-28 16:46:11 python manage.py runserver 139.59.67.0:8000
+  442  2019-08-29 10:19:48 cd django2adserver
+  443  2019-08-29 10:19:52 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  444  2019-08-29 10:19:58 python manage.py runserver 139.59.67.0:8000
+  445  2019-08-29 11:18:55 cd django2adserver
+  446  2019-08-29 11:18:58 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  447  2019-08-29 11:19:01 python manage.py runserver 139.59.67.0:8000
+  448  2019-08-29 12:10:25 yum install epel-release
+  449  2019-08-29 12:10:54 yum --enablerepo=epel -y list nagios-plugins*
+  450  2019-08-29 12:11:20 yum --enablerepo=epel -y install nrpe nagios-plugins-all.x86_64
+  451  2019-08-29 12:12:14 vi /etc/nagios/nrpe.cfg 
+  452  2019-08-29 12:14:01 systemctl restart nrpe
+  453  2019-08-29 12:14:10 vi /etc/csf/csf.conf 
+  454  2019-08-29 12:14:23 csf -r
+  455  2019-08-29 11:54:48 cd django2adserver
+  456  2019-08-29 11:54:50 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  457  2019-08-29 11:54:53 python manage.py runserver 139.59.67.0:8000
+  458  2019-08-29 15:14:55 cd django2adserver
+  459  2019-08-29 15:14:59 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  460  2019-08-29 15:15:03 python manage.py runserver 139.59.67.0:8000
+  461  2019-08-29 17:50:04 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  462  2019-08-29 17:50:07 cd django2adserver
+  463  2019-08-29 17:50:11 python manage.py runserver 139.59.67.0:8000
+  464  2019-08-29 11:30:18 ps auxfg 
+  465  2019-08-29 11:30:20 free -m 
+  466  2019-08-29 11:30:44 cat /proc/cpuinfo 
+  467  2019-08-29 11:30:48 netstat -nap | grep :80 | wc -l
+  468  2019-08-29 11:30:53 netstat -nap | grep :443 | wc -l
+  469  2019-08-29 11:31:13 free -m 
+  470  2019-08-29 11:31:15 top -d2
+  471  2019-08-29 11:31:21 free -m 
+  472  2019-08-29 11:31:31 top -d2
+  473  2019-08-29 11:39:36 df -h 
+  474  2019-08-29 16:55:04 csf -a 121.46.95.31
+  475  2019-08-29 16:56:22 top -d2
+  476  2019-08-29 16:58:20 ps auxfg 
+  477  2019-08-29 16:58:29 top -d2
+  478  2019-08-29 20:04:13 ps auxfg 
+  479  2019-08-29 20:04:19 top -d2
+  480  2019-08-29 20:04:28 netstat -nap | grep :80 | wc -l
+  481  2019-08-29 20:04:33 netstat -nap | grep :443 | wc -l
+  482  2019-08-29 20:04:37 w
+  483  2019-08-29 20:04:44 ifconfig 
+  484  2019-08-29 20:08:28 ps auxfg 
+  485  2019-09-02 10:55:29 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  486  2019-09-02 10:55:37 cd django2adserver
+  487  2019-09-02 10:55:43 python manage.py runserver 139.59.67.0:8000
+  488  2019-09-02 12:01:37 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  489  2019-09-02 12:01:38 cd django2adserver
+  490  2019-09-02 12:01:41 python manage.py runserver 139.59.67.0:8000
+  491  2019-09-02 12:22:26 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  492  2019-09-02 12:22:28 cd django2adserver
+  493  2019-09-02 12:22:32 python manage.py runserver 139.59.67.0:8000
+  494  2019-09-02 13:04:33 cd django2adserver
+  495  2019-09-02 13:04:36 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  496  2019-09-02 13:04:39 python manage.py runserver 139.59.67.0:8000
+  497  2019-09-02 17:25:22 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  498  2019-09-02 17:25:25 cd django2adserver
+  499  2019-09-02 17:25:26 python manage.py runserver 139.59.67.0:8000
+  500  2019-09-03 10:14:28 cd django2adserver
+  501  2019-09-03 10:14:32 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  502  2019-09-03 10:14:36 python manage.py runserver 139.59.67.0:8000
+  503  2019-09-03 11:55:19 cd django2adserver
+  504  2019-09-03 11:55:22 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  505  2019-09-03 11:55:26 python manage.py runserver 139.59.67.0:8000
+  506  2019-09-03 14:44:17 systemctl restart nrpe 
+  507  2019-09-03 14:37:00 cd django2adserver
+  508  2019-09-03 14:37:03 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  509  2019-09-03 14:37:05 python manage.py runserver 139.59.67.0:8000
+  510  2019-09-03 15:34:39 cd django2adserver
+  511  2019-09-03 15:34:42 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  512  2019-09-03 15:34:45 python manage.py runserver 139.59.67.0:8000
+  513  2019-09-03 17:32:18 w
+  514  2019-09-03 17:32:22 systemctl restart nrpew
+  515  2019-09-03 17:32:23 systemctl restart nrpe
+  516  2019-09-03 17:32:24 top
+  517  2019-09-04 10:31:46 cd django2adserver
+  518  2019-09-04 10:31:51 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  519  2019-09-04 10:31:56 python manage.py runserver 139.59.67.0:8000
+  520  2019-09-04 12:52:46 cd django2adserver
+  521  2019-09-04 12:52:49 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  522  2019-09-04 12:52:54 python manage.py runserver 139.59.67.0:8000
+  523  2019-09-04 12:53:20 python manage.py makemigrations
+  524  2019-09-04 12:53:32 python manage.py migrate
+  525  2019-09-04 12:54:30 python manage.py runserver 139.59.67.0:8000
+  526  2019-09-04 14:20:13 cd django2adserver
+  527  2019-09-04 14:20:17 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  528  2019-09-04 14:20:20 python manage.py runserver 139.59.67.0:8000
+  529  2019-09-04 16:34:00 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  530  2019-09-04 16:34:02 cd django2adserver
+  531  2019-09-04 16:34:04 python manage.py runserver 139.59.67.0:8000
+  532  2019-09-04 16:45:24 exim -bp | grep "<>" | awk '{system("exim -Mrm "$3)}'  
+  533  2019-09-04 16:45:35 service httpd status
+  534  2019-09-04 16:45:52 systemctl restart nrpe
+  535  2019-09-04 16:48:42 exim -bp | grep "<>" | awk '{system("exim -Mrm "$3)}'  
+  536  2019-09-04 16:48:46 systemctl restart nrpe
+  537  2019-09-04 17:16:46 exim -bp | grep "<>" | awk '{system("exim -Mrm "$3)}'  
+  538  2019-09-04 17:16:48 systemctl restart nrpe
+  539  2019-09-04 16:55:29 cd django2adserver
+  540  2019-09-04 16:55:31 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  541  2019-09-04 16:55:36 python manage.py runserver 139.59.67.0:8000
+  542  2019-09-04 17:43:03 cd django2adserver
+  543  2019-09-04 17:43:06 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  544  2019-09-04 17:43:11 python manage.py runserver 139.59.67.0:8000
+  545  2019-09-05 10:46:59 cd django2adserver
+  546  2019-09-05 10:47:02 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  547  2019-09-05 10:47:06 python manage.py runserver 139.59.67.0:8000
+  548  2019-09-05 11:35:02 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  549  2019-09-05 11:35:06 cd django2adserver
+  550  2019-09-05 11:35:10 python manage.py runserver 139.59.67.0:8000
+  551  2019-09-05 12:55:48 cd django2adserver
+  552  2019-09-05 12:55:54 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  553  2019-09-05 12:55:59 python manage.py runserver 139.59.67.0:8000
+  554  2019-09-05 14:39:04 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  555  2019-09-05 14:39:09 cd django2adserver
+  556  2019-09-05 14:39:11 python manage.py runserver 139.59.67.0:8000
+  557  2019-09-05 15:26:59 cd django2adserver
+  558  2019-09-05 15:27:04 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  559  2019-09-05 15:27:08 python manage.py runserver 139.59.67.0:8000
+  560  2019-09-05 17:36:38 w
+  561  2019-09-05 17:36:45 systemctl restart nrpe 
+  562  2019-09-05 17:36:46 w
+  563  2019-09-05 17:45:48 exim -bpc
+  564  2019-09-05 17:45:50 exim -bp
+  565  2019-09-05 17:46:25 exim -bp | grep frozen | awk '{system("exim -Mrm "$3)}'
+  566  2019-09-05 17:36:41 w
+  567  2019-09-05 17:36:46 sar -q
+  568  2019-09-05 17:36:49 sar -r
+  569  2019-09-05 17:36:59 cat /var/log/messages | grep memory
+  570  2019-09-05 17:37:09 last
+  571  2019-09-05 17:37:55 history 
+  572  2019-09-05 17:38:07 history  | grep reboot
+  573  2019-09-05 17:50:21 systemctl status nrpwe
+  574  2019-09-05 17:50:23 systemctl status nrpe
+  575  2019-09-05 18:05:04 ifconfig 
+  576  2019-09-05 18:36:04 cd django2adserver
+  577  2019-09-05 18:36:12 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  578  2019-09-05 18:36:21 python manage.py runserver 139.59.67.0:8000
+  579  2019-09-06 09:51:01 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  580  2019-09-06 09:51:04 cd django2adserver
+  581  2019-09-06 09:51:15 python manage.py runserver 139.59.67.0:8000
+  582  2019-09-06 10:46:11 cd django2adserver
+  583  2019-09-06 10:46:16 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  584  2019-09-06 10:46:19 python manage.py runserver 139.59.67.0:8000
+  585  2019-09-06 12:47:25 cls
+  586  2019-09-06 12:47:28 python manage.py runserver 139.59.67.0:8000
+  587  2019-09-06 14:06:49 cd django2adserver
+  588  2019-09-06 14:06:54 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  589  2019-09-06 14:06:57 python manage.py runserver 139.59.67.0:8000
+  590  2019-09-09 11:38:42 cd django2adserver
+  591  2019-09-09 11:38:45 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  592  2019-09-09 11:38:49 python manage.py runserver 139.59.67.0:8000
+  593  2019-09-09 11:43:44 python manage.py runserver
+  594  2019-09-09 11:44:05 python manage.py makemigrations
+  595  2019-09-09 11:44:16 python manage.py migrate
+  596  2019-09-09 11:44:55 python manage.py runserver 139.59.67.0:8000
+  597  2019-09-09 14:01:19 cd django2adserver
+  598  2019-09-09 14:01:25 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  599  2019-09-09 14:01:28 python manage.py runserver 139.59.67.0:8000
+  600  2019-09-09 15:06:35 systemctl status lsws
+  601  2019-09-09 15:06:36 w
+  602  2019-09-09 15:06:42 systemctl restart nrpe
+  603  2019-09-09 15:05:54 systemctl restart nrpe
+  604  2019-09-09 17:31:35 w
+  605  2019-09-09 17:31:38 exim -bp | grep frozen | awk '{system("exim -Mrm "$3)}'
+  606  2019-09-09 17:31:40 exim -bpc
+  607  2019-09-09 17:31:43 systemctl restart nrpe
+  608  2019-09-09 17:35:07 exit
+  609  2019-09-10 10:28:06 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  610  2019-09-10 10:28:14 cd django2adserver
+  611  2019-09-10 10:28:21 python manage.py runserver 139.59.67.0:8000
+  612  2019-09-10 15:30:26 systemctl restart nrpe
+  613  2019-09-10 15:29:35 cd django2adserver
+  614  2019-09-10 15:29:39 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  615  2019-09-10 15:29:42 python manage.py runserver 139.59.67.0:8000
+  616  2019-09-10 16:21:17 cd django2adserver
+  617  2019-09-10 16:21:20 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  618  2019-09-10 16:21:24 python manage.py runserver 139.59.67.0:8000
+  619  2019-09-11 10:07:02 cd django2adserver
+  620  2019-09-11 10:07:04 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  621  2019-09-11 10:07:08 python manage.py runserver 139.59.67.0:8000
+  622  2019-09-11 11:09:26 cd django2adserver
+  623  2019-09-11 11:09:28 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  624  2019-09-11 11:09:31 python manage.py runserver 139.59.67.0:8000
+  625  2019-09-11 12:08:54 cd django2adserver
+  626  2019-09-11 12:08:57 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  627  2019-09-11 12:08:59 python manage.py runserver 139.59.67.0:8000
+  628  2019-09-11 14:23:45 cd django2adserver
+  629  2019-09-11 14:23:47 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  630  2019-09-11 14:23:51 python manage.py runserver 139.59.67.0:8000
+  631  2019-09-11 17:41:46 cd django2adserver
+  632  2019-09-11 17:41:48 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  633  2019-09-11 17:41:51 python manage.py runserver 139.59.67.0:8000
+  634  2019-09-11 16:50:17 exim -bp | grep frozen | awk '{system("exim -Mrm "$3)}'
+  635  2019-09-11 16:50:20 exim -bpc
+  636  2019-09-11 16:50:34 systemctl restart exim
+  637  2019-09-11 16:51:13 systemctl restart nrpe
+  638  2019-09-12 10:09:38 cd django2adserver
+  639  2019-09-12 10:09:44 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  640  2019-09-12 10:09:54 python manage.py runserver 139.59.67.0:8000
+  641  2019-09-12 11:33:17 python manage.py makemigrations
+  642  2019-09-12 11:33:32 python manage.py migrate
+  643  2019-09-12 12:17:17 python manage.py runserver 139.59.67.0:8000
+  644  2019-09-12 14:20:34 cd django2adserver
+  645  2019-09-12 14:20:40 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  646  2019-09-12 14:20:43 python manage.py runserver 139.59.67.0:8000
+  647  2019-09-12 17:39:47 systemctl  restart nrpe
+  648  2019-09-12 17:39:48 Miles@JMM098
+  649  2019-09-12 17:39:55 cd django2adserver
+  650  2019-09-12 17:39:59 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  651  2019-09-12 17:40:03 python manage.py runserver 139.59.67.0:8000
+  652  2019-09-13 09:57:37 cd django2adserver
+  653  2019-09-13 09:57:40 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  654  2019-09-13 09:57:43 python manage.py runserver 139.59.67.0:8000
+  655  2019-09-13 10:32:46 cd django2adserver
+  656  2019-09-13 10:32:49 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  657  2019-09-13 10:32:53 python manage.py runserver 139.59.67.0:8000
+  658  2019-09-13 11:34:30 cd django2adserver
+  659  2019-09-13 11:34:34 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  660  2019-09-13 11:35:31 python manage.py runserver 139.59.67.0:8000
+  661  2019-09-13 12:01:28 cd django2adserver
+  662  2019-09-13 12:01:30 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  663  2019-09-13 12:01:32 python manage.py runserver 139.59.67.0:8000
+  664  2019-09-13 14:22:52 cd django2adserver
+  665  2019-09-13 14:22:55 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  666  2019-09-13 14:23:02 python manage.py runserver 139.59.67.0:8000
+  667  2019-09-13 15:04:24 cd django2adserver
+  668  2019-09-13 15:04:27 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  669  2019-09-13 15:04:31 python manage.py runserver 139.59.67.0:8000
+  670  2019-09-13 16:51:37 systemctl restart nrpe
+  671  2019-09-13 16:51:42 w
+  672  2019-09-13 16:46:37 cd django2adserver
+  673  2019-09-13 16:46:39 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  674  2019-09-13 16:46:42 python manage.py runserver 139.59.67.0:8000
+  675  2019-09-13 16:51:56 systemctl restart nrpe
+  676  2019-09-14 12:50:34 curl -sSL https://repos.insights.digitalocean.com/install.sh | sudo bash
+  677  2019-09-14 12:50:42 cat /etc/redhat-release 
+  678  2019-09-16 16:28:18 cd django2adserver
+  679  2019-09-16 16:28:26 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  680  2019-09-16 16:28:30 python manage.py runserver 139.59.67.0:8000
+  681  2019-09-16 18:11:51 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  682  2019-09-16 18:11:55 cd django2adserver
+  683  2019-09-16 18:11:57 python manage.py runserver 139.59.67.0:8000
+  684  2019-09-16 16:33:58 systemctl restart nrpe
+  685  2019-09-16 18:04:18 exim -bpc
+  686  2019-09-16 16:38:17 systemctl restart nrpe
+  687  2019-09-16 16:38:24 systemctl restart exim
+  688  2019-09-16 16:38:27 exim -bp | grep frozen | awk '{system("exim -Mrm "$3)}'
+  689  2019-09-16 16:38:30 exim -bpc
+  690  2019-09-16 16:39:36 systemctl status exim
+  691  2019-09-16 16:35:16 w
+  692  2019-09-17 10:12:09 cd django2adserver
+  693  2019-09-17 10:12:17 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  694  2019-09-17 10:12:24 python manage.py runserver 139.59.67.0:8000
+  695  2019-09-17 12:33:46 cd django2adserver
+  696  2019-09-17 12:33:49 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  697  2019-09-17 12:33:54 python manage.py runserver 139.59.67.0:8000
+  698  2019-09-17 13:57:57 cd django2adserver
+  699  2019-09-17 13:57:59 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  700  2019-09-17 13:58:01 python manage.py runserver 139.59.67.0:8000
+  701  2019-09-17 17:58:03 cd django2adserver
+  702  2019-09-17 17:58:07 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  703  2019-09-17 17:58:11 python manage.py runserver 139.59.67.0:8000
+  704  2019-09-18 10:00:03 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  705  2019-09-18 10:00:08 python manage.py runserver 139.59.67.0:8000
+  706  2019-09-18 10:00:16 cd django2adserver
+  707  2019-09-18 10:00:20 python manage.py runserver 139.59.67.0:8000
+  708  2019-09-18 10:39:56 cd django2adserver
+  709  2019-09-18 10:40:00 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  710  2019-09-18 10:40:03 python manage.py runserver 139.59.67.0:8000
+  711  2019-09-18 11:02:56 cd django2adserver
+  712  2019-09-18 11:02:59 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  713  2019-09-18 11:03:01 python manage.py runserver 139.59.67.0:8000
+  714  2019-09-18 12:50:27 cd django2adserver
+  715  2019-09-18 12:50:31 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  716  2019-09-18 12:50:37 python manage.py runserver 139.59.67.0:8000
+  717  2019-09-18 14:39:11 cd django2adserver
+  718  2019-09-18 14:39:15 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  719  2019-09-18 14:39:17 python manage.py runserver 139.59.67.0:8000
+  720  2019-09-18 16:00:56 cd django2adserver
+  721  2019-09-18 16:00:59 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  722  2019-09-18 16:01:02 python manage.py runserver 139.59.67.0:8000
+  723  2019-09-18 16:11:30 cd django2adserver
+  724  2019-09-18 16:11:32 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  725  2019-09-18 16:11:36 python manage.py runserver 139.59.67.0:8000
+  726  2019-09-18 17:44:50 cd django2adserver
+  727  2019-09-18 17:44:54 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  728  2019-09-18 17:44:58 python manage.py runserver 139.59.67.0:8000
+  729  2019-09-19 10:07:51 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  730  2019-09-19 10:07:54 python manage.py runserver 139.59.67.0:8000
+  731  2019-09-19 10:11:27 cd django2adserver
+  732  2019-09-19 10:11:29 python manage.py runserver 139.59.67.0:8000
+  733  2019-09-19 11:18:50 Miles@JMM098
+  734  2019-09-19 11:18:57 cd django2adserver
+  735  2019-09-19 11:19:02 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  736  2019-09-19 11:19:04 python manage.py runserver 139.59.67.0:8000
+  737  2019-09-19 11:25:09 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  738  2019-09-19 11:25:12 cd django2adserver
+  739  2019-09-19 11:25:13 python manage.py runserver 139.59.67.0:8000
+  740  2019-09-19 11:23:46 cd django2adserver
+  741  2019-09-19 11:23:49 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  742  2019-09-19 11:23:52 python manage.py runserver 139.59.67.0:8000
+  743  2019-09-19 11:04:56 cd django2adserver
+  744  2019-09-19 11:05:12 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  745  2019-09-19 11:05:16 python manage.py runserver 139.59.67.0:8000
+  746  2019-09-19 11:31:01 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  747  2019-09-19 11:31:13 cd django2adserver
+  748  2019-09-19 11:31:16 python manage.py runserver 139.59.67.0:8000
+  749  2019-09-19 11:33:08 Error: That port is already in use.
+  750  2019-09-19 11:35:16 python manage.py runserver 139.59.67.0:8000
+  751  2019-09-19 15:55:37 systemctl restart nrpe
+  752  2019-09-19 15:55:46 systemctl enable nrpe 
+  753  2019-09-19 15:39:53 cd django2adserver
+  754  2019-09-19 15:39:58 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  755  2019-09-19 15:40:02 python manage.py runserver 139.59.67.0:8000
+  756  2019-09-19 16:15:37 cd django2adserver
+  757  2019-09-19 16:15:40 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  758  2019-09-19 16:15:43 python manage.py runserver 139.59.67.0:8000
+  759  2019-09-19 18:15:08 cd django2adserver
+  760  2019-09-19 18:15:10 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  761  2019-09-19 18:15:14 python manage.py runserver 139.59.67.0:8000
+  762  2019-09-20 10:21:38 cd django2adserver
+  763  2019-09-20 10:21:41 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  764  2019-09-20 10:21:46 python manage.py runserver 139.59.67.0:8000
+  765  2019-09-20 11:53:26 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  766  2019-09-20 11:53:28 cd django2adserver
+  767  2019-09-20 11:53:30 python manage.py runserver 139.59.67.0:8000
+  768  2019-09-20 14:30:36 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  769  2019-09-20 14:30:43 cd django2adserver
+  770  2019-09-20 14:30:46 python manage.py runserver 139.59.67.0:8000
+  771  2019-09-20 15:49:50 python manage.py makemigrations
+  772  2019-09-20 15:50:01 python manage.py migrate
+  773  2019-09-20 15:50:45 python manage.py makemigrations
+  774  2019-09-20 15:50:50 python manage.py migrate
+  775  2019-09-20 15:51:57 python manage.py runserver 139.59.67.0:8000
+  776  2019-09-20 11:53:19 cd django2adserver
+  777  2019-09-20 11:53:22 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  778  2019-09-20 11:53:30 python manage.py runserver 139.59.67.0:8000
+  779  2019-09-20 18:15:24 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  780  2019-09-20 18:15:29 cd django2adserver
+  781  2019-09-20 18:15:41 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  782  2019-09-20 18:15:55 python manage.py runserver 139.59.67.0:8000
+  783  2019-09-23 10:06:50 cd django2adserver
+  784  2019-09-23 10:06:53 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  785  2019-09-23 10:06:54 cd django2adserver
+  786  2019-09-23 10:06:57 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  787  2019-09-23 10:07:04 python manage.py runserver 139.59.67.0:8000
+  788  2019-09-23 10:07:08 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  789  2019-09-23 10:07:11 python manage.py runserver 139.59.67.0:8000
+  790  2019-09-23 10:07:24 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  791  2019-09-23 10:07:26 python manage.py runserver 139.59.67.0:8000
+  792  2019-09-23 10:07:33 cd django2adserver
+  793  2019-09-23 10:07:45 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  794  2019-09-23 10:07:48 python manage.py runserver 139.59.67.0:8000
+  795  2019-09-23 10:10:38 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  796  2019-09-23 10:10:41 cd django2adserver
+  797  2019-09-23 10:10:45 python manage.py runserver 139.59.67.0:8000
+  798  2019-09-23 10:16:04 cd django2adserver
+  799  2019-09-23 10:16:06 python manage.py runserver 139.59.67.0:8000
+  800  2019-09-23 10:16:15 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  801  2019-09-23 10:16:18 python manage.py runserver 139.59.67.0:8000
+  802  2019-09-23 10:49:14 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  803  2019-09-23 10:49:17 cd django2adserver
+  804  2019-09-23 10:49:19 python manage.py runserver 139.59.67.0:8000
+  805  2019-09-23 14:01:31 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  806  2019-09-23 14:01:34 cd django2adserver
+  807  2019-09-23 14:01:39 python manage.py runserver 139.59.67.0:8000
+  808  2019-09-23 14:02:57 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  809  2019-09-23 14:02:58 cd django2adserver
+  810  2019-09-23 14:03:00 python manage.py runserver 139.59.67.0:8000
+  811  2019-09-23 12:59:33 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  812  2019-09-23 12:59:35 cd django2adserver
+  813  2019-09-23 12:59:37 python manage.py runserver 139.59.67.0:8000
+  814  2019-09-23 14:07:12 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  815  2019-09-23 14:07:45 cd django2adserver
+  816  2019-09-23 14:07:48 python manage.py runserver 139.59.67.0:8000
+  817  2019-09-23 14:38:33 cd 
+  818  2019-09-23 14:38:36 cd ../
+  819  2019-09-23 14:38:40 cd /
+  820  2019-09-23 14:38:47 cd ../
+  821  2019-09-23 14:38:51 cd root
+  822  2019-09-23 14:48:27 cd django2adserver
+  823  2019-09-23 14:48:36 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  824  2019-09-23 14:48:47 python manage.py runserver 139.59.67.0:8000
+  825  2019-09-23 16:21:00 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  826  2019-09-23 16:21:06 python manage.py runserver 139.59.67.0:8000
+  827  2019-09-23 16:21:11 cd django2adserver
+  828  2019-09-23 16:21:17 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  829  2019-09-23 16:21:20 python manage.py runserver 139.59.67.0:8000
+  830  2019-09-23 16:22:33 python -V
+  831  2019-09-23 16:22:49 python manage.py runserver 139.59.67.0:8000
+  832  2019-09-23 17:17:01 python -version
+  833  2019-09-23 17:17:04 python --version
+  834  2019-09-23 17:19:13 telnet 132.148.83.127 25
+  835  2019-09-23 14:40:58 ls
+  836  2019-09-23 14:41:03 cd delivery
+  837  2019-09-23 14:41:10 ls
+  838  2019-09-23 14:41:18 cd media
+  839  2019-09-23 14:41:20 ls
+  840  2019-09-23 14:54:58 cd ../
+  841  2019-09-23 14:55:04 ls
+  842  2019-09-23 15:06:28 cd delivery/
+  843  2019-09-23 15:06:29 la
+  844  2019-09-23 15:06:31 ls
+  845  2019-09-23 15:06:35 cd cache
+  846  2019-09-23 15:06:37 ls
+  847  2019-09-23 15:06:47 cd ../core
+  848  2019-09-23 15:06:55 ls
+  849  2019-09-23 15:14:30 python renderad.py
+  850  2019-09-23 15:18:53 ls
+  851  2019-09-23 15:19:01 cd ../
+  852  2019-09-23 15:19:14 ls
+  853  2019-09-23 15:19:19 cd root
+  854  2019-09-23 15:19:23 ls
+  855  2019-09-23 15:19:32 cd delivery/
+  856  2019-09-23 15:19:34 ls
+  857  2019-09-23 16:50:41 cd django2adserver
+  858  2019-09-23 16:50:50 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  859  2019-09-23 16:50:54 python manage.py runserver 139.59.67.0:8000
+  860  2019-09-23 14:13:32 vi /etc/csf/csf.conf
+  861  2019-09-23 15:20:45 ls
+  862  2019-09-23 15:20:52 cd delivery/
+  863  2019-09-23 15:20:53 ls
+  864  2019-09-23 15:20:56 cd core
+  865  2019-09-23 15:20:57 ls
+  866  2019-09-23 15:21:11 python renderad.py
+  867  2019-09-23 15:22:54 ls'
+  868  2019-09-23 15:35:22 ls
+  869  2019-09-23 15:35:48 python renderad.py
+  870  2019-09-23 15:47:28 cd ../
+  871  2019-09-23 15:47:34 cd python/
+  872  2019-09-23 15:47:37 ls
+  873  2019-09-23 15:47:54 python test.py
+  874  2019-09-23 15:53:57 python connection.py
+  875  2019-09-23 15:55:05 python test.py
+  876  2019-09-23 16:06:47 python - mcgihttpserver
+  877  2019-09-23 16:21:39 python -V
+  878  2019-09-23 16:51:59 chmod 777 
+  879  2019-09-23 16:52:08 chmod --help
+  880  2019-09-23 16:52:20 cd ../
+  881  2019-09-23 16:53:01 chmod  777 - R python
+  882  2019-09-23 16:53:08 sudo chmod  777 - R python
+  883  2019-09-23 16:53:12 sudo chmod  777 python
+  884  2019-09-23 16:54:32 chown -R home2.home2 /home2/onetrack/public_html/cgi-bin
+  885  2019-09-23 16:54:52 chown -R onetrack.onetrack /home2/onetrack/public_html/cgi-bin
+  886  2019-09-23 16:55:31 chmod +x /home2/onetrack/public_html/cgi-bin
+  887  2019-09-23 16:57:54 chown -R onetrack.onetrack /home2/onetrack/public_html/cgi-bin/test.py
+  888  2019-09-23 16:58:14 chown -R onetrack.onetrack /home2/onetrack/public_html/cgi-bin/test.py/
+  889  2019-09-23 16:58:37 chown -R /home2/onetrack/public_html/cgi-bin
+  890  2019-09-23 16:58:43 cd  /home2/onetrack/public_html/cgi-bin
+  891  2019-09-23 17:04:44 ls
+  892  2019-09-23 17:04:50 cd python
+  893  2019-09-23 17:04:54 ls
+  894  2019-09-23 17:05:10 python test.py
+  895  2019-09-23 17:56:37 ls
+  896  2019-09-23 17:56:40 cd ..
+  897  2019-09-23 17:56:42 ls
+  898  2019-09-23 17:58:26 python test.py
+  899  2019-09-23 18:50:04 ls
+  900  2019-09-23 18:55:18 chown -R /home2/onetrack/public_html/cgi-bin
+  901  2019-09-23 18:55:22 cd ../
+  902  2019-09-23 18:55:26 chown -R /home2/onetrack/public_html/cgi-bin
+  903  2019-09-23 18:55:45 chown -R /home2/onetrack/public_html/cgi-bin/
+  904  2019-09-23 18:55:52 chown  /home2/onetrack/public_html/cgi-bin/
+  905  2019-09-23 18:55:54 chown  /home2/onetrack/public_html/cgi-bin
+  906  2019-09-23 18:56:01 chown  home2/onetrack/public_html/cgi-bin
+  907  2019-09-23 17:29:17 which pythong
+  908  2019-09-23 17:29:19 which python
+  909  2019-09-23 17:38:11 cd /home2/onetrack/public_html
+  910  2019-09-23 17:38:11 ll
+  911  2019-09-23 17:38:20 cd cgi-bin
+  912  2019-09-23 17:38:21 ll
+  913  2019-09-23 17:38:24 cd python
+  914  2019-09-23 17:38:25 ll
+  915  2019-09-23 17:38:38 mv * ../
+  916  2019-09-23 17:38:40 ll
+  917  2019-09-23 17:38:42 cd ..
+  918  2019-09-23 17:38:43 ll
+  919  2019-09-23 17:39:00 chown onetrack.onetrack constant.pyc
+  920  2019-09-23 17:39:26 ll
+  921  2019-09-23 17:39:55 cd ..
+  922  2019-09-23 17:49:22 pwd
+  923  2019-09-23 17:49:38 ll
+  924  2019-09-23 17:49:44 cd cgi-bin
+  925  2019-09-23 17:49:46 pwd
+  926  2019-09-23 17:55:42 ll
+  927  2019-09-23 18:18:28 cd django2adserver
+  928  2019-09-23 18:18:33 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  929  2019-09-23 18:18:37 python manage.py runserver 139.59.67.0:8000
+  930  2019-09-24 10:01:52 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  931  2019-09-24 10:01:57 cd django2adserver
+  932  2019-09-24 10:01:59 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  933  2019-09-24 10:02:01 python manage.py runserver 139.59.67.0:8000
+  934  2019-09-24 11:23:21 source /home2/onetrack/virtualenv/home2/onetrack/public_html/python/3.7/bin/activate
+  935  2019-09-24 11:23:29 cd /home/onetrack/home2/onetrack/public_html/python
+  936  2019-09-24 11:23:54 cd home2/onetrack/public_html/python
+  937  2019-09-24 11:24:00 cd /home2/onetrack/public_html/python
+  938  2019-09-24 11:24:52 cd ../
+  939  2019-09-24 11:24:54 ls
+  940  2019-09-24 11:24:58 cd ../
+  941  2019-09-24 11:25:01 cd /
+  942  2019-09-24 11:25:04 source /home2/onetrack/virtualenv/public_html/python/3.7/bin/activate
+  943  2019-09-24 11:25:15 cd /home/onetrack/public_html/python
+  944  2019-09-24 11:38:43 cd /
+  945  2019-09-24 11:39:57 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  946  2019-09-24 11:40:05 cd django2adserver
+  947  2019-09-24 11:40:11 python manage.py runserver 139.59.67.0:8000
+  948  2019-09-24 12:17:04 cd onetrack
+  949  2019-09-24 12:17:07 cd ~onetrack
+  950  2019-09-24 12:17:09 cd public_html/
+  951  2019-09-24 12:17:10 l
+  952  2019-09-24 12:17:11 ll
+  953  2019-09-24 12:17:15 tail -f error_log 
+  954  2019-09-24 12:18:38 tail -f /usr/local/apache/logs/error_log | grep 1.186.248.31
+  955  2019-09-24 12:35:42 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  956  2019-09-24 12:35:44 cd django2adserver
+  957  2019-09-24 12:35:47 python manage.py runserver 139.59.67.0:8000
+  958  2019-09-24 12:36:07 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  959  2019-09-24 12:36:10 python manage.py runserver 139.59.67.0:8000
+  960  2019-09-24 12:55:07 cd /
+  961  2019-09-24 12:55:10 cd ../
+  962  2019-09-24 12:55:13 source /home2/onetrack/virtualenv/public_html/python/3.7/bin/activate
+  963  2019-09-24 12:55:23 cd /home/onetrack/public_html/python
+  964  2019-09-24 12:55:34 cd /home2/onetrack/public_html/python
+  965  2019-09-24 12:55:48 python manage.py runserver
+  966  2019-09-24 12:56:33 ls
+  967  2019-09-24 12:56:48 python test.py
+  968  2019-09-24 12:57:48 source /home2/onetrack/virtualenv/djano/3.7/bin/activate
+  969  2019-09-24 12:58:29 cd django2adserver
+  970  2019-09-24 12:58:33 cd 
+  971  2019-09-24 12:58:35 cd django2adserver
+  972  2019-09-24 12:58:47 python manage.py runserver 139.59.67.0:8000
+  973  2019-09-24 13:47:49 cd django2adserver
+  974  2019-09-24 13:48:01 python manage.py runserver 139.59.67.0:8000
+  975  2019-09-24 10:05:49 ls
+  976  2019-09-24 10:06:00 cd home2
+  977  2019-09-24 10:07:28 cd ../
+  978  2019-09-24 10:07:30 ls
+  979  2019-09-24 10:07:40 cd home2
+  980  2019-09-24 10:07:41 ls
+  981  2019-09-24 10:07:44 cd onetrack/
+  982  2019-09-24 10:07:47 ls
+  983  2019-09-24 10:07:54 cd public_html/
+  984  2019-09-24 10:07:55 ls
+  985  2019-09-24 10:08:02 cd cgi-bin/
+  986  2019-09-24 10:08:03 ls
+  987  2019-09-24 10:16:22 chown -R USERNAME.USERNAME /home/USERNAME/public_html/cgi-bin
+  988  2019-09-24 10:16:48 chown -R onetrack.onetrack /home2/onetrack/public_html/cgi-bin
+  989  2019-09-24 10:16:52 ls
+  990  2019-09-24 10:17:39 ls -a
+  991  2019-09-24 10:32:20 ls -lsa
+  992  2019-09-24 10:33:38 python test.py
+  993  2019-09-24 10:42:03 strace test.py
+  994  2019-09-24 10:42:10 ls
+  995  2019-09-24 11:58:55 cd ../
+  996  2019-09-24 11:58:59 ls
+  997  2019-09-24 11:59:06 cd python
+  998  2019-09-24 11:59:08 ls
+  999  2019-09-24 11:59:16 python test.py
+ 1000  2019-09-24 14:04:20 python3.7 manage.py runserver 0.0.0.0:8000
+ 1001  2019-09-24 14:04:27 python2.7 manage.py runserver 0.0.0.0:8000
+ 1002  2019-09-24 14:07:39 python2.7 manage.py runserver 139.59.67.0:8000
+ 1003  2019-09-24 14:07:45 python manage.py runserver 139.59.67.0:8000
+ 1004  2019-09-24 14:07:47 pwd
+ 1005  2019-09-24 14:08:36 ll
+ 1006  2019-09-24 14:57:10 history > log.txt
