@@ -22,6 +22,21 @@ import secrets
 import base64
 import hashlib 
 from datetime import datetime,timedelta
+from itertools import chain
+from random import randint
+from django.core.mail import send_mail
+from django.conf import settings
+
+
+from rest_framework.exceptions import ParseError
+from rest_framework.parsers import FileUploadParser
+from django.core.files.storage import FileSystemStorage
+from django.db import connection
+
+from inventory.helpers import generateWebZoneInvocationCode,generateHtml5ZoneInvocationCode,getLinkedAdvertrisers,checkCampaignTotalLimitStatus,checkCampaignDailyLimitStatus,checkCampaignExpireStatus
+from inventory.helpers import getLinkedAdvertrisers,getLinkedCampaigns,getLinkedBanners,updateAdZoneAssoc,getAssocOrderDetails,getLinkedBannersByZones
+from inventory.helpers import updateDeliveryAd,getlinkedZone,updateCampaignCacheData
+from inventory.html5creative import html5CreativeUpdate
 
 
 
@@ -167,8 +182,8 @@ def campaignsStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Campaigns Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -321,8 +336,8 @@ def zoneStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Zones Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -399,8 +414,8 @@ def webcampaignsStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Campaign Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -797,7 +812,7 @@ def campaigns_list(request,clientid):
                 whereStr 			= 'c.clientid = '+useridString+' AND '
                 with connection.cursor() as cursor:
                     sql = "SELECT * FROM inventory_campaigns AS a, inventory_clients AS c WHERE " +whereStr+ " a.clientid = c.clientid"
-                    #print(sql)
+                    print(sql)
                     cursor.execute(sql)
                     field_names = [item[0] for item in cursor.description]
                     rawData = cursor.fetchall()

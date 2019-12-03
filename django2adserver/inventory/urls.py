@@ -104,6 +104,7 @@ urlpatterns = [
 	path('inventory/executive/clients/', executive_views.clients_list),
 	path('inventory/executive/clients/<int:pk>/', executive_views.clients_detail),	
 	path('inventory/executive/<int:clientid>/campaigns/', executive_views.campaigns_list),
+	path('inventory/executive/banners/', executive_views.banners_list),
 	path('inventory/executive/campaigns/<int:campaignid>/banners/', executive_views.getCmpsAllBanners),
     path('inventory/executive/<int:clientid>/campaigns/', executive_views.campaigns_list),
 	
@@ -137,6 +138,9 @@ urlpatterns = [
 	path('inventory/pubexecutive/zones/<int:pk>/', pubexecutive_views.zones_detail),
 	path('inventory/pubexecutive/<int:pk>/zonestats/', pubexecutive_views.zoneStats),
 	path('inventory/pubexecutive/<int:pk>/zonedailystats/<int:id>/', pubexecutive_views.zoneDailyStats),
+
+	path('inventory/pubexecutive/zonesinclude/', pubexecutive_views.zonesInclude),
+	path('inventory/pubexecutive/zonesinvocation/', pubexecutive_views.zonesInvocation),
 #export
 	path('inventory/pubexecutive/exportpubecutiveexcel/', pubexecutive_views.ExportPubexecutiveExcel),
 

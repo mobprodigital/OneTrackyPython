@@ -21,9 +21,23 @@ import json
 import secrets
 import base64
 import hashlib 
-from datetime import datetime,timedelta
+from itertools import chain
+from random import randint
+from django.core.mail import send_mail
+from django.conf import settings
 
 
+from rest_framework.exceptions import ParseError
+from rest_framework.parsers import FileUploadParser
+from django.core.files.storage import FileSystemStorage
+from django.db import connection
+
+from inventory.helpers import generateWebZoneInvocationCode,generateHtml5ZoneInvocationCode,getLinkedAdvertrisers,checkCampaignTotalLimitStatus,checkCampaignDailyLimitStatus,checkCampaignExpireStatus
+from inventory.helpers import getLinkedAdvertrisers,getLinkedCampaigns,getLinkedBanners,updateAdZoneAssoc,getAssocOrderDetails,getLinkedBannersByZones
+from inventory.helpers import updateDeliveryAd,getlinkedZone,updateCampaignCacheData
+from inventory.html5creative import html5CreativeUpdate
+deliveryCachePath		= '../public_html/django2adserver/cgi-bin/delivery/cache/'
+deliveryUrl				= 'https://api.onetracky.com/cgi-bin/delivery/'
 
 
 
@@ -167,8 +181,8 @@ def campaignsStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Campaigns Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -324,8 +338,7 @@ def zoneStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+
                 
                 responseObject = {'message': 'Zones Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -405,8 +418,8 @@ def webcampaignsStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Campaign Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -853,7 +866,8 @@ def zones_list(request,affiliateid):
                     serializer.save()
                     zone 		= Zones.objects.latest('zoneid')
                     zoneCache 	= 'delivery_zone_' + str(zone.zoneid) + '.py'
-                    f 			= open('delivery/cache/' + zoneCache, 'w+')
+               
+                    f 			= open(deliveryCachePath + zoneCache, 'w+')
                     
                     jsonArr 	= serializer.data
                     jsonString 	= json.dumps(jsonArr)
@@ -951,8 +965,8 @@ def zoneStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Zones Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -1436,8 +1450,8 @@ def linkedZones(request,campaignid):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Zones Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -1447,6 +1461,122 @@ def linkedZones(request,campaignid):
                 return JsonResponse(responseObject, safe=False)
 
 
+def zonesInclude(request):
+    zoneType 		= ''
+    width 			= 0
+    height 			= 0
+    zoneid			=request.GET.get('zoneid')
+    if zoneid:
+        affiliateid			= request.GET.get('affiliateid')
+        zoneData			= Zones.objects.get(zoneid=zoneid)
+        #print(zoneData)
+        if zoneData:
+            zoneType = zoneData.delivery
+            width	= zoneData.width
+            height	= zoneData.height
+            
+            advertiser 		   = getLinkedAdvertrisers(zoneType,width,height)
+            #print(advertiser)
+            responseObject		= {"advtdata":advertiser}
+
+                
+            
+            if request.GET.get('clientid'):
+                clientid					= request.GET.get('clientid')
+                campaigns					= getLinkedCampaigns(clientid,zoneType,width,height)
+                
+                responseObject.update({"cmpdata":campaigns})
+
+                #print(campaigns)
+                if request.GET.get('campaignid'):
+                    campaginid				= request.GET.get('campaignid')
+                    banners					= getLinkedBanners(clientid,campaginid,zoneType, width,height)
+                    #print(banners)
+
+                    responseObject.update({"bannerdata":banners})
+                    if request.GET.get('bannerid'):
+                        bannerid 				= request.GET.get('bannerid')
+                        msg			        	= updateAdZoneAssoc(bannerid,zoneid)
+                        bannerData1             = getAssocOrderDetails(bannerid)
+                        bannerData				= bannerData1[0] 
+                        #"activate_time":bannerData.get('activate_time'),
+                        #"expire_time":bannerData.get('expire_time'),
+                        assocData		= {
+                            'ad_id' : bannerData.get('bannerid'),
+                            "banner_status":bannerData.get('banner_status'),
+                            "campaign_status":bannerData.get('campaign_status'),
+                            
+                            'width' : zoneData.width,
+                            'height' :  zoneData.height,
+                            'type' : zoneData.delivery,
+                            'contenttype' : bannerData.get('contenttype'),
+                            'weight' : bannerData.get('banner_weight'),
+                            'block_ad' : '0',
+                            'cap_ad' : '0',
+                            'session_cap_ad' : '0',
+                            'compiledlimitation' : '',
+                            #'acl_plugins' : NULL,
+                            'alt_filename' : '',
+                            'priority' : '0',
+                            'priority_factor' : '1',
+                            'to_be_delivered' : '1',
+                            'campaign_id' : bannerData.get('campaignid'),
+                            'campaign_priority' : bannerData.get('campaign_priority'),
+                            'campaign_weight' : bannerData.get('campaign_weight'),
+                            'campaign_companion' : '0',
+                            'block_campaign' : '0',
+                            'cap_campaign' : '0',
+                            'session_cap_campaign' : '0',
+                            'show_capped_no_cookie' : '0',
+                            'client_id' : bannerData.get('clientid'),
+                        }
+                        bannerCache 	= 'delivery_ad_zone_' + str(zoneid) + '.py'
+                        f 				= open(deliveryCachePath + bannerCache, 'w+')
+
+                        jsonArr 		= assocData
+                        jsonString 		= json.dumps(jsonArr)
+                        f.write(jsonString)
+                        f.close()
+
+    linkedBanner		= getLinkedBannersByZones(zoneid)
+    responseObject.update({"linkedBanner":linkedBanner})
+
+    responseObject12 	= {"message":"Linking Banner","data":responseObject,'status':True}
+    return JsonResponse(responseObject12, safe=False, status=200,)
+
+
+def zonesInvocation(request):
+    if request.method == 'POST':
+        data12 = JSONParser().parse(request)
+        thirdPartyServer = data12['thirdpartytrack']
+    else:
+        thirdPartyServer = None
+
+    zoneId = request.GET.get('zoneid')
+    if zoneId:
+        affiliateId = request.GET.get('affiliateid')
+        zoneData 	= Zones.objects.get(zoneid=zoneId)
+        AdId = 7
+        if zoneData:
+            
+            zoneType = zoneData.delivery
+            
+            clickTag = 'http://localhost/ckvast.php?zoneid=' + str(zoneId) + '&bannerid=' + str(AdId)
+            if zoneType == 'html':
+                zoneInvocation = 'it is will generate vast tag'
+            elif zoneType == 'html5':
+                zoneInvocation = generateHtml5ZoneInvocationCode(zoneId, thirdPartyServer, clickTag)
+            else:
+                zoneInvocation = generateWebZoneInvocationCode(zoneId, thirdPartyServer, clickTag)
+                
+        invocationCode 	= zoneInvocation
+        data       		= {'code': invocationCode,'zoneid':zoneId,'affiliateid':affiliateId,'zonetype':zoneType,'thirdpartytrack':thirdPartyServer}
+        responseObject = {'message':'Invocation Code','data':data,  'status':True}
+        return JsonResponse(responseObject,safe=False)
+    else:
+        data 			= {'code': 'zone doesnot exist'}
+        responseObject = {'message':'Invocation Code','data':data,  'status':False}
+        return JsonResponse(responseObject, safe=False, status=204)
 
 def ExportPubexecutiveExcel(request):
     #print(request.GET['period_preset'])

@@ -200,8 +200,8 @@ def campaignsStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Campaigns Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -360,8 +360,8 @@ def zoneStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Zones Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -438,8 +438,8 @@ def webcampaignsStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Campaign Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	

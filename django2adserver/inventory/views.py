@@ -40,10 +40,12 @@ from django.db import connection
 from inventory.helpers import generateWebZoneInvocationCode,generateHtml5ZoneInvocationCode,getLinkedAdvertrisers,checkCampaignTotalLimitStatus,checkCampaignDailyLimitStatus,checkCampaignExpireStatus
 from inventory.helpers import getLinkedAdvertrisers,getLinkedCampaigns,getLinkedBanners,updateAdZoneAssoc,getAssocOrderDetails,getLinkedBannersByZones
 from inventory.helpers import updateDeliveryAd,getlinkedZone,updateCampaignCacheData
+from inventory.html5creative import html5CreativeUpdate
+
 
 
 deliveryCachePath		= '../public_html/django2adserver/cgi-bin/delivery/cache/'
-deliveryUrl		= 'https://api.onetracky.com/cgi-bin/delivery/'
+deliveryUrl				= 'https://api.onetracky.com/cgi-bin/delivery/'
 
 
 def videoBannChk(clientId,cmapaignId='',bannerId=''):
@@ -85,18 +87,18 @@ def videoBannChk(clientId,cmapaignId='',bannerId=''):
 
 
 def zonesInclude(request):
-    zoneType 		= '';
-    width 			= 0;
-    height 			= 0;
+    zoneType 		= ''
+    width 			= 0
+    height 			= 0
     zoneid			=request.GET.get('zoneid')
     if zoneid:
         affiliateid			= request.GET.get('affiliateid')
         zoneData			= Zones.objects.get(zoneid=zoneid)
         #print(zoneData)
         if zoneData:
-            zoneType = zoneData.delivery;
-            width	= zoneData.width;
-            height	= zoneData.height;
+            zoneType = zoneData.delivery
+            width	= zoneData.width
+            height	= zoneData.height
             
             advertiser 		   = getLinkedAdvertrisers(zoneType,width,height)
             print(advertiser)
@@ -469,7 +471,7 @@ def advertiserStats(request):
     if tokenStatus:
         with connection.cursor() as cursor:
             sql = "SELECT c.clientid,clientname,SUM(s.impressions) AS impressions,SUM(s.clicks) AS clicks,SUM(s.requests) AS requests,SUM(s.total_revenue) AS revenue FROM inventory_clients AS c,inventory_campaigns AS m,inventory_banners AS b,inventory_rv_data_summary_ad_hourly AS s WHERE c.clientid = m.clientid AND m.campaignid = b.campaignid AND b.bannerid = s.creative_id "+getWhereDate(oStartDate, oEndDate)+" GROUP BY c.clientid"
-            #print(sql)
+            print(sql)
             cursor.execute(sql)
             field_names = [item[0] for item in cursor.description]
             rawData = cursor.fetchall()
@@ -619,7 +621,6 @@ def bannersDailyStats(request,clientid,campaignid,bannerid):
                     VideoChkRes        = videoBannChk(clientid,campaignid,bannerid)
                     VideoChk           = VideoChkRes['checkVideoAdvtStatus']
                 #objDict.update({'checkVideoAdvtStatus' :VideoChk })
-                result.append(objDict)                        
                 result.append(objDict)
                 finalData       = {'checkVideoAdvtStatus' :VideoChk, 'reportData':result}
                 responseObject = {'message': 'Banners Stats', 'data': finalData, 'status':True}
@@ -660,8 +661,8 @@ def campaignsStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Campaigns Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -687,7 +688,7 @@ def campaignsDailyStats(request,pk,id):
         with connection.cursor() as cursor:
             # add campaignname in group by condition by sunil
             sql = "SELECT m.campaignname,SUM(s.impressions) AS impressions,SUM(s.clicks) AS clicks,SUM(s.requests) AS requests,SUM(s.total_revenue) AS revenue,DATE(s.date_time) AS day FROM inventory_clients AS c,inventory_campaigns AS m,inventory_banners AS b,inventory_rv_data_summary_ad_hourly AS s WHERE "+whereStr+" c.clientid = m.clientid AND m.campaignid = b.campaignid AND b.bannerid = s.creative_id "+getWhereDate(oStartDate, oEndDate)+"  GROUP BY day,m.campaignname"
-            print(sql)
+            #print(sql)
             cursor.execute(sql)
             field_names = [item[0] for item in cursor.description]
             rawData = cursor.fetchall()
@@ -701,7 +702,6 @@ def campaignsDailyStats(request,pk,id):
                     VideoChkRes        = videoBannChk(pk,id)
                     VideoChk           = VideoChkRes['checkVideoAdvtStatus']
                 #objDict.update({'checkVideoAdvtStatus' :VideoChk })
-                result.append(objDict)                        
                 result.append(objDict)
                 finalData       = {'checkVideoAdvtStatus' :VideoChk, 'reportData':result}
                 responseObject = {'message': 'Campaigns Stats', 'data': finalData, 'status':True}
@@ -810,8 +810,8 @@ def zoneStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Zones Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -888,8 +888,8 @@ def webcampaignsStats(request,pk):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Campaign Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
@@ -1226,7 +1226,39 @@ def clients_list(request):
     else:	
         responseObject = {'message': 'Token Required', 'data': [], 'status':False}
         return JsonResponse(responseObject, safe=False)			
-        
+
+
+def campaigns_list(request):
+    tokenempChk         = tokenEmpCheck(request.META['HTTP_AUTHORIZATION'])
+    if tokenempChk:
+        tokenStatus 		= validateToken(request.META['HTTP_AUTHORIZATION'])
+        if tokenStatus:
+            if request.method == 'GET':
+                campaigns = Campaigns.objects.all()
+                print(campaigns)
+                serializer = CampaignsSerializer(campaigns, many=True)
+                #print(serializer)
+                responseObject = {'message': 'Campaigns Lists', 'data': serializer.data, 'status':True}
+                return JsonResponse(responseObject, safe=False)
+                
+            elif request.method == 'POST':
+                data = JSONParser().parse(request)
+                serializer = CampaignsSerializer(data=data)
+                print('abcd')
+                #print(serializer)
+                if serializer.is_valid():
+                    serializer.save()
+                    responseObject = {'message': 'Campaigns Added successfully', 'data': serializer.data, 'status':True}
+                    return JsonResponse(responseObject, status=201)
+        else:
+            responseObject = {'message': 'Invalid User', 'data': [], 'status':False}
+            return JsonResponse(responseObject, safe=False,status=204)
+    else:	
+        responseObject = {'message': 'Token Required', 'data': [], 'status':False}
+        return JsonResponse(responseObject, safe=False)
+
+
+
 def clients_detail(request, pk):
     tokenempChk         = tokenEmpCheck(request.META['HTTP_AUTHORIZATION'])
     if tokenempChk:
@@ -1275,33 +1307,32 @@ def clients_detail(request, pk):
 
 
 
-def campaigns_list(request):
-    tokenempChk         = tokenEmpCheck(request.META['HTTP_AUTHORIZATION'])
-    if tokenempChk:
-        tokenStatus 		= validateToken(request.META['HTTP_AUTHORIZATION'])
-        if tokenStatus:	
-            if request.method == 'GET':
-                campaigns = Campaigns.objects.all()
-                serializer = CampaignsSerializer(campaigns, many=True)
-                print(serializer)
-                # return JsonResponse(serializer.data, safe=False)
-                #tokenData 	= {'token':token,'user_id': users.user_id,'username':users.username,'email':users.email,'firstname':users.firstname,'lastname':users.lastname}
-                responseObject = {'message': 'Campaigns Lists', 'data': serializer.data, 'status':True}
-                return JsonResponse(responseObject, safe=False)
+# def campaigns_list(request):
+#     tokenempChk         = tokenEmpCheck(request.META['HTTP_AUTHORIZATION'])
+#     if tokenempChk:
+#         tokenStatus 		= validateToken(request.META['HTTP_AUTHORIZATION'])
+#         if tokenStatus:	
+#             if request.method == 'GET':
+#                 campaigns = Campaigns.objects.all()
+#                 serializer = CampaignsSerializer(campaigns, many=True)
+#                 # return JsonResponse(serializer.data, safe=False)
+#                 #tokenData 	= {'token':token,'user_id': users.user_id,'username':users.username,'email':users.email,'firstname':users.firstname,'lastname':users.lastname}
+#                 responseObject = {'message': 'Campaigns Lists', 'data': serializer.data, 'status':True}
+#                 return JsonResponse(responseObject, safe=False)
                 
-            elif request.method == 'POST':
-                data = JSONParser().parse(request)	
-                serializer = CampaignsSerializer(data=data)
-                if serializer.is_valid():
-                    serializer.save()
-                    responseObject = {'message': 'Campaigns Added successfully', 'data': serializer.data, 'status':True}
-                    return JsonResponse(responseObject, status=201)
-        else:
-            responseObject = {'message': 'Invalid User', 'data': [], 'status':False}
-            return JsonResponse(responseObject, safe=False,status=204)
-    else:	
-        responseObject = {'message': 'Token Required', 'data': [], 'status':False}
-        return JsonResponse(responseObject, safe=False)					
+#             elif request.method == 'POST':
+#                 data = JSONParser().parse(request)
+#                 serializer = CampaignsSerializer(data=data)
+#                 if serializer.is_valid():
+#                     serializer.save()
+#                     responseObject = {'message': 'Campaigns Added successfully', 'data': serializer.data, 'status':True}
+#                 return JsonResponse(responseObject, status=201)
+#         else:
+#             responseObject = {'message': 'Invalid User', 'data': [], 'status':False}
+#             return JsonResponse(responseObject, safe=False,status=204)
+#     else:	
+#         responseObject = {'message': 'Token Required', 'data': [], 'status':False}
+#         return JsonResponse(responseObject, safe=False)					
         
         
 def campaigns_detail(request, pk):
@@ -1394,14 +1425,12 @@ def bannersupdate(request,pk):
 
         
         if storagetype == 'html5':
-            print('3')
-            htmltemplate		= request.POST['htmltemplate']
-            postData.update({'contenttype' : 'html5'})
-            postData.update({'htmltemplate' : htmltemplate})
+            postData	= html5CreativeUpdate(request,postData)
+
             
 
         if storagetype == 'html':
-            print('4')
+     
             adtype		= request.POST['ext_bannertype']
             postData.update({'contenttype' : 'html'})
             postVideoData = {}
@@ -1505,8 +1534,8 @@ def banners_list(request):
         tokenStatus 		= validateToken(request.META['HTTP_AUTHORIZATION'])
         if tokenStatus:	
             if request.method == 'GET':
-                banners = Banners.objects.all()
-                serializer = BannersSerializer(banners, many=True)
+                banners 	= Banners.objects.all().order_by('-bannerid')
+                serializer 	= BannersSerializer(banners, many=True)
                 # return JsonResponse(serializer.data, safe=False)
                 responseObject = {'message': 'Banners Lists', 'data': serializer.data, 'status':True}
                 return JsonResponse(responseObject, safe=False)
@@ -1544,9 +1573,8 @@ def banners_list(request):
 
                 
                 if storagetype == 'html5':
-                    htmltemplate		= request.POST['htmltemplate']
-                    postData.update({'contenttype' : 'html5'})
-                    postData.update({'htmltemplate' : htmltemplate})
+                   postData	= html5CreativeUpdate(request,postData)
+
                     
 
                 if storagetype == 'html':
@@ -1621,18 +1649,6 @@ def banners_list(request):
                         videoserializer.save()
                         
                 banner 		= Banners.objects.latest('bannerid')
-				
-                # bannerCache = 'delivery_ad_' + str(banner.bannerid) + '.py'
-                # f 			= open(deliveryCachePath + bannerCache, 'w+')
-                # if storagetype == 'html':
-                    # jsonArr 	= [serializer.data,videoserializer.data]
-                # else:
-                    # jsonArr 	= serializer.data
-
-                
-                # jsonString 	= json.dumps(jsonArr)
-                # f.write(jsonString)
-                # f.close()
                 
                 updateDeliveryAd(banner.bannerid)
                         
@@ -1824,7 +1840,7 @@ def zones_list(request):
         tokenStatus 		= validateToken(request.META['HTTP_AUTHORIZATION'])
         if tokenStatus:	
             if request.method == 'GET':
-                zones = Zones.objects.all()
+                zones = Zones.objects.all().order_by('-zoneid')
                 serializer = ZonesSerializer(zones, many=True)
                 # return JsonResponse(serializer.data, safe=False)
                 responseObject = {'message': 'Zones Lists', 'data': serializer.data, 'status':True}
@@ -1912,7 +1928,7 @@ def affiliates_list(request):
         tokenStatus 		= validateToken(request.META['HTTP_AUTHORIZATION'])
         if tokenStatus:	
             if request.method == 'GET':
-                affiliates = Affiliates.objects.all()
+                affiliates = Affiliates.objects.all().order_by('-affiliateid')
                 serializer = AffiliatesSerializer(affiliates, many=True)
                 # return JsonResponse(serializer.data, safe=False)
                 responseObject = {'message': 'Affiliates Lists', 'data': serializer.data, 'status':True}
@@ -3120,8 +3136,8 @@ def campaignsVastStats(request,pk,id):
                         objDict[field_names[index]] = value
                     result.append(objDict)
                 
-                clients 	= Clients.objects.get(pk=pk)
-                print(clients)
+                # clients 	= Clients.objects.get(pk=pk)
+                # print(clients)
                 
                 responseObject = {'message': 'Campaigns Stats', 'data': result, 'status':True}
                 return JsonResponse(responseObject, safe=False)	
