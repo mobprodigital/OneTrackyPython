@@ -19,6 +19,8 @@ from inventory.models import Users,LoginToken,banner_vast_element,rv_ad_zone_ass
 from inventory.serializers import UsersSerializer,UsersCustomizeSerializer,LoginTokenSerializer,BannervastSerializer,Client_accessSerializer,rv_ad_zone_assocSerializer
 from inventory.pubexecutive_serializers import Publisher_accessSerializer
 from inventory.executive_serializers import Client_accessSerializer
+from inventory.helpers import MAX_displayAcls,getLimitationComponent
+
 import json
 import os
 import sys
@@ -46,6 +48,268 @@ from inventory.html5creative import html5CreativeUpdate
 
 deliveryCachePath		= '../public_html/django2adserver/cgi-bin/delivery/cache/'
 deliveryUrl				= 'https://api.onetracky.com/cgi-bin/delivery/'
+
+def getComponents(request):
+    bannerid				= request.GET.get('bannerid')
+    campaignid				= request.GET.get('campaignid')
+    clientid				= request.GET.get('clientid')
+    bannerData				= Banners.objects.get(bannerid=bannerid)
+    componentName 			= JSONParser().parse(request)
+    token 					= componentName['token']
+    response				= {}
+    #acls                    = ''
+
+    
+
+    if request.method == 'POST':
+        if(token == 'save component'):
+            acls 				= componentName['acl']
+            aclPlugins			= ''
+            compiledLimitPrefix	= 'Max_check'
+            loopCount			= 0
+            compiledLimit		= ''
+            
+            for acl in acls:
+                if(acl['data']):
+                    if(loopCount >= 1):
+                        compiledLimit		= compiledLimit+' '+acl['logical']+' '
+                    
+                    pluginsName		= acl['type'];
+                    pluginsNameArr	= pluginsName.split(':')
+                    compiledLimit 	= compiledLimit+'Max_check'+pluginsNameArr[1]+'_'+pluginsNameArr[2]	
+                    aclPlugins		+= pluginsName+','
+                
+                    
+                        
+                    if(acl['type'] == 'deliveryLimitations:Mobile:ISP' or  acl['type'] == 'deliveryLimitations:Client:Domain' or acl['type']=='deliveryLimitations:Client:IP' or acl['type']=='deliveryLimitations:Time:Date'):
+                        if(acl['type']=='deliveryLimitations:Time:Date'):
+                            
+                            dateformat	 	= acl['data']['date']
+                            dateformatArr	= dateformat.split('-')
+                            timestamp		= dateformatArr[2]+dateformatArr[1]+dateformatArr[0]
+                            limitVariables	= timestamp
+                            
+                        else:
+                            limitVariables	 = acl['data']
+                        
+                        
+                    else:
+                        if(len(acl['data']) > 1):
+                            limitVariables	 = ",".join(acl['data'])
+                        else:
+                            limitVariables	 = acl['data'][0]
+                    
+                    compiledLimit 	 = compiledLimit+"('"+limitVariables+"','"+acl['comparison']+"')"
+                    #compiledLimit 	 = compiledLimit+"("+limitVariables+","+acl['comparison']+")"
+
+                    loopCount = loopCount+1
+            if(loopCount==0):
+                compiledLimit	= ''
+                
+            aclPlugins						= aclPlugins[0:len(aclPlugins)-1]
+            #aclPlugins						= addslashes(aclPlugins)
+            #compiledLimit					= compiledLimit.replace("'","''")
+            
+            
+            bannerData.acl_plugins				= aclPlugins
+            bannerData.compiledlimitation		= compiledLimit
+            now 								= datetime.now()
+            dateTime							= now.strftime('%Y-%m-%d %H:%M:%S')
+            
+            
+            
+
+            
+            
+            bannerData.acls_updated				= dateTime
+            bannerData.save();
+            
+            assocData		= Banners.objects.get(pk=bannerid)
+            serializer 		= BannersSerializer(assocData)
+            jsonArr2		= serializer.data
+            
+            bannerCampaginCacheData							= getAssocOrderDetails(bannerid)
+            
+            
+            #print(bannerCampaginCacheData)
+            
+            
+            if(assocData):
+                filename		= deliveryCachePath+''+str(bannerid)+'.py'
+                f				= open(filename,"w+")
+                jsonArr 		= bannerCampaginCacheData
+                jsonString 		= json.dumps(jsonArr, indent=4, sort_keys=True, default=str)
+                f.write(jsonString)
+                f.close()
+        
+        elif(token == 'new component'):
+        
+            acls						= {}
+            limitationDetails			= Banners.objects.get(pk=bannerid)
+            
+            if(len(limitationDetails.acl_plugins)):
+                acl_plugins 				= limitationDetails.compiledlimitation.split('and')
+                pluginData				    = limitationDetails.acl_plugins.split(',')
+                
+                key 			= 0
+                for acl_plugin in acl_plugins:
+                    if(limitationDetails.compiledlimitation):
+                        limitations 		= acl_plugins[key]
+                        start				= limitations.find('(')+2
+                        end					= limitations.find(')')-6
+                        length				= end - start
+                        strlen				= len(limitations)
+                        compStart			= strlen-4
+                                    
+                        limitValue			= limitations[start:length]
+                        comp				= limitations[compStart:2]
+                        acl			= {
+                            "ad_id"				: bannerid,
+                            "comparison" 		: comp,
+                            "data" 				: limitValue,
+                            "executionorder" 	: key,
+                            "logical" 			: 'and',
+                            "type" 				: pluginData[key]
+                        }
+                        
+                    
+                        if(pluginData[key] == 'deliveryLimitations:Geo:City'):
+                            cCode 					= limitValue.split(',')
+                            acl['state']			= cCode[1]
+                            
+                        
+                        limitValueArr		= limitValue.split(',')
+                        
+                    key	= key +1
+                    acls[key]	= acl
+            
+            
+                        
+
+            if (len(acls) == 0) :
+                acls[0]								= {
+                    "comparison" : '',
+                    "data" : 		'',
+                    "executionorder" : 0,
+                    "logical" : '',
+                    "type" : componentName['type']
+                }
+                if(componentName['type'] == 'deliveryLimitations:Geo:City'):
+                    if(componentName['country']):
+                        acls[0]['data']	= componentName['country']
+                    if componentName['state']:
+                        acls[0]['state']	= componentName['state']
+                if(componentName['type'] == 'deliveryLimitations:Geo:Region'):
+                    if(componentName['country']):
+                        acls[0]['data']	= componentName['country']
+                        
+            else:
+                typeCount		= len(acls)
+                acls[typeCount]	= {
+                    "comparison" : '',
+                    "data" :'',
+                    "executionorder" : typeCount,
+                    "logical" : '',
+                    "type" : componentName['type']
+                }
+                
+                if(componentName['type'] == 'deliveryLimitations:Geo:City'):
+                    if(componentName['country']):
+                        acls[key]['data']	= componentName['country']
+                    if componentName['state']:
+                        acls[key]['state']	= componentName['state']
+                if(componentName['type'] == 'deliveryLimitations:Geo:Region'):
+                    if(componentName['country']):
+                        acls[key]['data']	= componentName['country']
+                        
+                    
+                    
+                
+    elif request.method == 'DELETE':
+        bannerData.acl_plugins	= ''
+        bannerData.compiledlimitation=''
+        bannerData.save()
+        assocData		= Banners.objects.get(pk=bannerid)
+        serializer 		= BannersSerializer(assocData)
+        jsonArr2		= serializer.data
+
+        if(assocData):
+            #print(deliveryCachePath)
+            filename		= deliveryCachePath+''+str(bannerid)+'.py'
+            f				= open(filename,"w+")
+            jsonArr 		= jsonArr2
+            jsonString 		= json.dumps(jsonArr)
+            f.write(jsonString)
+            f.close()
+        
+        
+        acls	= {}
+    ############ finally check all limitation and retrun
+    
+    if (token == 'save component') or (token == 'delete component') or 	(token == 'get component'):
+        acls						= {}
+        limitationDetails			= Banners.objects.get(pk=bannerid)
+        if(len(limitationDetails.acl_plugins)):
+            acl_plugins 				= limitationDetails.compiledlimitation.split('and')
+            pluginData				    = limitationDetails.acl_plugins.split(',')
+            
+            key 			= 0
+            for acl_plugin in acl_plugins:
+                #print(limitationDetails.compiledlimitation)
+                if(limitationDetails.compiledlimitation):
+                    limitations 		= acl_plugins[key]
+                    limitations			= limitations.strip()
+                    start				= limitations.find('(')+2
+                    end					= limitations.find(')')-6
+                    length				= end - start
+                    strlen				= len(limitations)
+                    compStart			= strlen-4
+                                
+                    limitValue			= limitations[start:end]
+                    comp				= limitations[compStart:compStart+2]
+                    
+                    acl			= {
+                        "ad_id"				: bannerid,
+                        "comparison" 		: comp,
+                        "data" 				: limitValue,
+                        "executionorder" 	: key,
+                        "logical" 			: 'and',
+                        "type" 				: pluginData[key]
+                    }
+                    
+                
+                    if(pluginData[key] == 'deliveryLimitations:Geo:City'):
+                        cCode 					= limitValue.split(',')
+                        acl['state']			= cCode[1]
+                        
+                    
+                    limitValueArr		= limitValue.split(',')
+                
+                acls[key]	= acl
+                key	= key +1
+            response.update({"acls":acls})
+
+
+    
+    
+    # print(acls[0]['type'])
+    # print(acls)
+
+    #print('hellllo')
+    components		= getLimitationComponent()
+    aParams			= {'clientid':clientid,'campaignid':campaignid,'bannerid':bannerid}
+    input			= MAX_displayAcls(acls, aParams)
+    response.update({"plugins":components})
+    response.update({"input":input})
+    
+
+
+
+    responseObject 	= {"message":"Delivery Limitation Components","data":response,'status':True}
+    #responseObject = {"message":"Delivery Limitation Components","data":"sss",'status':True}
+
+    return JsonResponse(responseObject, safe=False, status=200)
+
 
 
 def videoBannChk(clientId,cmapaignId='',bannerId=''):
@@ -284,7 +548,7 @@ def zonesInvocation(request):
             
             clickTag 			= deliveryUrl+'core/ckvast.py?zoneid=' + str(zoneId) + '&bannerid=' + str(AdId)
 
-				
+                
             if zoneType == 'html':
                 zoneInvocation = 'it is will generate vast tag'
             elif zoneType == 'html5':
@@ -1358,10 +1622,10 @@ def campaigns_detail(request, pk):
                 
                 if(campaigns.views != data['views']):
                     data['status']	= checkCampaignTotalLimitStatus(campaigns,data['views'])
-					
+                    
                 if(campaigns.target_impression != data['target_impression']):
                     data['status']	= checkCampaignDailyLimitStatus(campaigns,data['target_impression'])
-					
+                    
                 if(campaigns.expire_time != data['expire_time']):
                     data['status']	= checkCampaignExpireStatus(campaigns,data['expire_time'])
 
@@ -1496,7 +1760,7 @@ def bannersupdate(request,pk):
             bannerObj 			= Banners.objects.latest('updated')
             banner_id			= bannerObj.bannerid
             postVideoData.update({'banner_id' : banner_id})
-			
+            
             vastBanner = banner_vast_element.objects.get(banner_id=banner_id)
             videoserializer 			= BannervastSerializer(vastBanner, data=postVideoData,)
             if videoserializer.is_valid():

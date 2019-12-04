@@ -3,6 +3,7 @@ from inventory.models import rv_ad_zone_assoc
 from inventory.serializers import rv_ad_zone_assocSerializer
 from datetime import datetime,timedelta
 import json
+import sys
 
 
 deliveryCorePath		= 'https://api.onetracky.com/cgi-bin/delivery/core/';
@@ -272,6 +273,226 @@ def updateDeliveryAd(bannerid):
 #def updateDeliveryZone():
 #def updateDeliveryAdZoneAssoc():
 
+def MAX_displayAcls(acls, aParams):
+	
+	if (len(acls) == 0):
+		print("no")
+	else:
+		count				= len(acls)
+		#print(count)
+		aclId				= 0
+		response			= {}
+		#response = list(range(1, 31))
+		for index,acl in acls.items():
+			#print(index)
+			#print(acl['data'])
+			if(acl['data']):
+				if(acl['type']=='deliveryLimitations:Geo:City'):
+					if(isinstance(acl['data'], list)):
+						data		= acl['data']
+					else:
+						data		= acl['data'].split(',')
+				elif(acl['type']=='deliveryLimitations:Geo:Region'):
+					if(isinstance(acl['data'],list)):
+						data		= acl['data']
+						
+					else:
+						data		= acl['data'].split(',')
+						
+				else:
+					if(isinstance(acl['data'],list)):
+						data		= acl['data']
+					else:
+						data		= acl['data'].split(',')
+			else:
+				data		= []
+			
+			#print(acl);
+			response[index]	= display(acl, count, aParams['bannerid'], data)
+		#sys.exit(response)
+		return response
+		
+		
+def display(acl, count, bannerid, data):
+	#sys.exit(data)
+	type				= acl['type']
+	comparison			= acl['comparison']
+	
+
+	limitationArr		= type.split(':')
+	#print(limitationArr)
+	#sys.exit(limitationArr)
+	displayName			= limitationArr[1]+' - '+limitationArr[2]
+	#displayName			= limitationArr[0]+' - '+limitationArr[1]
+	#print("hi google")
+	#sys.exit(displayName)
+	
+	# print(acl)
+	# print(count)
+	# print(data)
+	# print(displayName)
+	return displayData(acl, count, data,displayName)
+	
+	
+	
+def displayData(acl,executionorder, data, aclType):
+	aclType			= aclType.replace(' - ', '')
+	if(aclType	== 'GeoCity'):
+		inputData			= aclPluginData (acl,aclType,data);
+		return inputData;
+		
+	elif(aclType	== 'GeoRegion'):
+		inputData			= aclPluginData (acl,aclType,data);
+		return inputData;
+	else:
+		inputData			= aclPluginData(acl,aclType,data)
+	return inputData
+		
+		
+	
+
+def aclPluginData(acl,aclType,data):
+	#sys.exit(aclType)
+	if(aclType == 'ClientBrowser'):
+		input			= ClientBrowser()
+		response		= {"Client - Browser":input}
+		
+	elif(aclType == 'ClientOs'):
+		input			= ClientOs()
+		response		= {"Client - Operating system":input}
+
+
+	elif(aclType == 'DeviceScreen'):
+		input			= DeviceScreen()
+		response		= {"Device - Screen":input}
+		
+	elif(aclType == 'GeoCity'):
+		country			= GeoCountry()
+		if(len(data[0]) != 0):
+			countryISO		= data[0]
+			states			= GeoState(countryISO)
+			if(countryISO == 'IN' and acl['state']):
+				#print("hi")
+				stateCode		= acl['state']
+				stateName		= states[str(stateCode)]
+				cities			= GeoCity(stateName)
+				#print(cities)
+				response		= {"plugin":"Geo - Country / City","countryList":country,"stateList":states,"cityList":cities}
+			else:
+				response		= {"plugin":"Geo - Country / City","countryList":country,"stateList":states}
+		else:
+			response		= {"plugin":"Geo - Country / City","countryList":country}
+
+	
+		
+	elif(aclType == 'GeoRegion'):
+		country			= GeoCountry()
+		if(len(data[0]) != 0):
+			countryISO		= data[0]
+			states			= GeoState(countryISO)
+			response		= {"plugin":"Geo - Country / Region","countryList":country,"stateList":states}
+
+		else:
+			response		= {"plugin":"Geo - Country / Region","countryList":country}
+
+				
+	elif(aclType == 'GeoCountry'):
+		input			= GeoCountry()
+		response		= {"Geo - Country":input}
+		
+	elif(aclType == 'MobileISP'):
+		input			= MobileISP()
+		response		= {"Mobile - ISP":input}
+		
+	elif(aclType == 'ClientDomain'):
+		input			= ClientDomain()
+		response		= {"Client - Domain":input}
+	elif(aclType == 'ClientIP'):
+		input			= ClientIP()
+		response		= {"Client - IP":input}
+		
+	return response
+	
+	
+def GeoCity(state):
+	cityList 	= getCity()
+	return cityList[state]
+	
+def GeoState(countryISO):
+	stateList 	= getState(countryISO)
+	return stateList
+	
+def GeoCountry():
+	countryList = getCountry()
+	return countryList
+
+def ClientOs():
+	res = {
+		'w10'       : 'Windows 10',
+		'w7'        : 'Windows 7',
+		'xp'        : 'Windows XP',
+		'2k'        : 'Windows 2000',
+		'linux'     : 'Linux',
+		'freebsd'   : 'FreeBSD',
+		'sun'       : 'Solaris',
+		'osx'       : 'Mac OSX',
+	}
+	return res;
+
+
+def DeviceScreen():
+	res = {
+		'mobile'        : 'Mobile',
+		'desktop'       : 'Desktop',
+		'tablet'        : 'Tablet',
+	}
+	return res;
+
+
+
+def ClientBrowser():
+	aBrowsers = {
+		'GC' : 'Chrome',
+		'FX' : 'Firefox',
+		'IE' : 'Internet Explorer',
+		'SF' : 'Safari',
+		'OP' : 'Opera',
+	}
+	return aBrowsers;
+	
+def MobileISP():
+	OA_Geo_ISP = {
+		"MTNL" 				: "Mahanagar Telephone Nigam Limited",
+		"JIO" 				: "Reliance Jio Infocomm Limited",
+		"VODAFONE IDEA" 	: "Vodafone Idea Ltd",
+		"VODAFONE"			: "Vodafone India Ltd.",
+		"IDEA"				: "Idea Cellular Limited",
+		"AIRTEL" 			: "Bharti Airtel Limited",
+		"BSNL" 				: "National Internet Backbone",
+		"TATA DOCOMO"		: "TATA Communications formerly VSNL is Leading ISP"
+	}
+	return OA_Geo_ISP
+	
+def ClientDomain():
+	return True
+	
+def ClientIP():
+	return True
+	
+def getLimitationComponent():
+	componets	={
+		"deliveryLimitations:Client:Browser" : "Client - Browser",
+		"deliveryLimitations:Client:Os" 	 : "Client - Operating system",
+		"deliveryLimitations:Device:Screen"  : "Device - Screen",
+		"deliveryLimitations:Geo:Country" 	 : "Geo - Country",
+		"deliveryLimitations:Geo:Region" 	 : "Geo - Country / Region",
+		"deliveryLimitations:Geo:City" 		 : "Geo - Country / City",
+		"deliveryLimitations:Client:IP" 	 : "Client - IP",
+		"deliveryLimitations:Client:Domain"  : "Client - Domain"
+	}
+	return componets
+
+
 
 
 def checkCampaignExpireStatus(campaigns,newExpireTime):
@@ -393,7 +614,7 @@ def checkCampaignTotalLimitStatus(campaigns,newViews):
 
 def getLinkedAdvertrisers(zoneType,width,height):
 	with connection.cursor() as (cursor):
-		sql 				="SELECT DISTINCT inventory_clients.clientid, inventory_clients.clientname FROM inventory_clients JOIN inventory_campaigns ON inventory_campaigns.clientid=inventory_clients.clientid JOIN inventory_banners ON inventory_banners.campaignid=inventory_campaigns.campaignid WHERE inventory_banners.storagetype = 'web'" 
+		sql 				="SELECT DISTINCT inventory_clients.clientid, inventory_clients.clientname FROM inventory_clients JOIN inventory_campaigns ON inventory_campaigns.clientid=inventory_clients.clientid JOIN inventory_banners ON inventory_banners.campaignid=inventory_campaigns.campaignid WHERE inventory_banners.storagetype = '"+zoneType+"'" 
 		if zoneType != 'html':
 			sql +="AND inventory_banners.width = '"+str(width)+"' AND inventory_banners.height = '"+str(height)+"'"
 	
@@ -555,8 +776,8 @@ def generateHtml5ZoneInvocationCode(zoneId,thirdPartyServer,clickTag):
 	
 	buffer	 = ''
 	buffer += "<script type='text/javascript'><!--//<![CDATA[\n"
-	buffer +="   var url=window.location.host; var m3_u = (location.protocol=='https:'?'"+ssrc+"?domain='+url:'"+src+"?domain='+url);\n"
-	buffer +="   var m3_r = Math.floor(Math.random()*99999999999);\n"
+	buffer +="    var url=window.location.host; var m3_u = (location.protocol=='https:'?'"+ssrc+"?domain='+url:'"+src+"?domain='+url);\n"
+	buffer +="    var m3_r = Math.floor(Math.random()*99999999999);\n"
 	if not (thirdPartyServer is None):
 		if(thirdPartyServer == 'doubleclick'):
 			buffer +="    m3_r  = '%%CACHEBUSTER%%'\n"

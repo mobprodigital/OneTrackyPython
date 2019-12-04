@@ -2,6 +2,8 @@ from django.urls import path
 from inventory import views,advertiser_views,publisher_views,executive_views,pubexecutive_views,publisherexecutive_views,advertiserexecutive_views
 
 urlpatterns = [
+	path('inventory/deliverylimitation/getcomponents/', views.getComponents),
+
 	#start of users
 	path('inventory/users/', views.users_list),
 	path('inventory/users/<int:pk>/', views.users_detail),
