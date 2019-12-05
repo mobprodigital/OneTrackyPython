@@ -11,16 +11,29 @@ from random import randint
 import cgi,cgitb
 from cgi import parse_qs, escape
 import os
+import sys
+
 
 
 
 def renderad():
-	d = parse_qs(os.environ['QUERY_STRING'])
+	qs = os.environ['QUERY_STRING']
+	d = parse_qs(qs)
 	zoneid = d.get('zoneid',[''])[0]
-	
+	#print(zoneid)
 	
 	protocol			= ''
 	dfpClickUrl			= ''
+	if not(d.get('adurl',[''])[0] is None):
+		Original_url		= qs#.lower()
+		first_index 		= Original_url.find("&click");
+		first_string 		= Original_url[first_index:]
+		second_index 		= first_string.find("&ord=")
+		dfpClickUrl 		= first_string[len("&click")+1:second_index]
+	
+	#print(dfpClickUrl)
+	#sys.exit()
+	
 	ip					= ''
 	iframe				= ''
 	
@@ -48,11 +61,9 @@ def renderad():
 
 
 def html5CreativeCode(banner, zoneid, protocol, dfpClickUrl, ip,iframe):
-	src			= "https://api.onetracky.com/cgi-bin/delivery/"
-	mediaUrl 	= "https://onetracky.com/pydelivery/"
-	parsed_uri 	= urlparse('https://stackoverflow.com')
-	if(parsed_uri.scheme == 'https'):
-		src	= src.replace('https','http')
+	deliveryUrl			= "https://api.onetracky.com/cgi-bin/delivery/"
+	pydeliveryUrl 		= "https://onetracky.com/pydelivery/"
+	
 	
 	cbString 	= 	hashlib.md5(str(randint(100, 999)).encode())
 	cb			= cbString.hexdigest()
@@ -63,29 +74,32 @@ def html5CreativeCode(banner, zoneid, protocol, dfpClickUrl, ip,iframe):
 		if dfpClickUrl:
 			clickurl					= dfpClickUrl;
 		else:
-			clickurl					= src+'core/ckvast.py?bannerid='+str(banner['bannerid'])+"&zoneid="+str(zoneid)+"&cb="+cb;
+			clickurl					= deliveryUrl+'core/ckvast.py?bannerid='+str(banner['bannerid'])+"&zoneid="+str(zoneid)+"&cb="+cb;
 		
 	else:
-		clickurl					= src()+'core/ckvast.py?bannerid='+str(banner['bannerid'])+"&zoneid="+str(zoneid)+"&cb="+cb;
+		clickurl					= deliveryUrl()+'core/ckvast.py?bannerid='+str(banner['bannerid'])+"&zoneid="+str(zoneid)+"&cb="+cb;
 	
 	
 	if(banner['htmltemplate']):
 		width 			= banner['width']
-		if(not(dfpClickUrl  and width == '1' )):
+		if(not(dfpClickUrl  and width == 1 )):
+			
 			
 			player		= banner['htmltemplate']
 			
 			player 		= player.replace("{clickurl}", clickurl)
 			
-			player	   +="<img src='"+src+"core/lgimpr.py?bannerid="+str(banner['bannerid'])+"&zoneid="+str(zoneid)+"&cb="+cb+"' width='1' height='1' alt=''>";
+			player	   +="<img deliveryUrl='"+deliveryUrl+"core/lgimpr.py?bannerid="+str(banner['bannerid'])+"&zoneid="+str(zoneid)+"&cb="+cb+"' width='1' height='1' alt=''>";
 			if(banner['tracking_pixel']):
 				buster			= cb;
 				trackingPixel 	= banner['tracking_pixel'].replace("{cache}","$buster")
-				player			+="<img src='"+trackingPixel+"' width='1' height='1' alt=''>";
+				player			+="<img deliveryUrl='"+trackingPixel+"' width='1' height='1' alt=''>";
 			
 			return player;
 		else:
-			creativeCode = richMediaCode(banner,zoneid,src, dfpClickUrl,cb);
+			
+			creativeCode = richMediaCode(banner,zoneid,deliveryUrl, dfpClickUrl,cb,pydeliveryUrl);
+			
 			return creativeCode;
 		
 		
@@ -93,53 +107,72 @@ def html5CreativeCode(banner, zoneid, protocol, dfpClickUrl, ip,iframe):
 		return ""
 
 		
-# def richMediaCode(banner, zoneid, src, dfpClickUrl,cb):
-	# type 		= banner['rich_media_type']		
-	# if(type == 1):
-		# fileName = 'expandorightleft';
+def richMediaCode(banner, zoneid, deliveryUrl, dfpClickUrl,cb,pydeliveryUrl):
+	type 		= banner['rich_media_type']		
+	if(type == 1):
+		fileName = 'expandorightleft';
 		
-	# elif(type ==2):
-		# fileName = 'expandotopbottom';
+	elif(type ==2):
+		fileName = 'expandotopbottom';
 		
-	# elif(type == 3):
-		# fileName  = 'pagepusher';
+	elif(type == 3):
+		fileName  = 'pagepusher';
 	
-	# elif(type == 4):
-		# fileName  = 'overlay';
+	elif(type == 4):
+		fileName  = 'overlay';
 	
 	
-	# ext 			= '.js';
-	# fileNameExt 	= fileName+ext;
-	# filePath 		= GLOBALS['deliveryPath']+'buster/'+fileNameExt;
+	ext 			= '.js';
+	fileNameExt 	= fileName+ext;
+	deliveryPath	= '/home2/onetrack/public_html/django2adserver/cgi-bin/delivery/'
+	pydeliveryPath	= '/home2/onetrack/public_html/pydelivery/'
+	filePath 		= deliveryPath+'buster/'+fileNameExt;
 	
-	# creativeImage1					= GLOBALS['deliveryPath']+'banners/images/'+banner['filename'];
-	# creativeImage2					= GLOBALS['deliveryPath']+'banners/images/'+banner['filename2'];
-	# lgimprTracker					= src+"core/lgimpr.php?bannerid="+str(banner['bannerid'])+"&zoneid="+str(zoneid)+"&cb="+cb;
+	creativeImage1					= pydeliveryUrl+'media/'+banner['filename'];
+	if(banner['rich_media_type'] != 4):
+		creativeImage2					= pydeliveryUrl+'media/'+banner['filename2'];
+	lgimprTracker					= deliveryUrl+"core/lgimpr.py?bannerid="+str(banner['bannerid'])+"&zoneid="+str(zoneid)+"&cb="+cb;
 
-	# thirdParyTracker	= '';
-	# if(banner['tracking_pixel']):
-		# buster					= cb;
-		# trackingPixel  			= str_replace("{cache}","buster",banner['tracking_pixel']);
-		# thirdParyTracker		= '<img src="'+trackingPixel+'" width="1" height="1" alt="">';
+	thirdParyTracker	= '';
+	if(banner['tracking_pixel']):
+		buster					= cb;
+		trackingPixel  			= banner['tracking_pixel'].replace("{cache}",buster);
+		thirdParyTracker		= '<img deliveryUrl="'+trackingPixel+'" width="1" height="1" alt="">';
 	
 	
-	# busterFileName 					= filePath;
-	# busterContent   	    		= file_get_contents(busterFileName);
-	# busterContent 					= str_replace("{imagePath1}", "creativeImage1", busterContent);
-	# busterContent 					= str_replace("{imagePath2}", "creativeImage2", busterContent);
-	# busterContent 					= str_replace("{clickurl}", "dfpClickUrl", busterContent);
-	# busterContent 					= str_replace("{lgimprTracker}", lgimprTracker, busterContent);
-	# busterContent 					= str_replace("{thirdParyTracker}", thirdParyTracker, busterContent);
-	# busterPath						= GLOBALS['includePathDelivery']+'buster/'+fileNameExt;
-	# bannerid						= banner['bannerid'];
-	# putFilePath 					= GLOBALS['includePathDelivery']+'bustercache/'+str(bannerid)+'_'+fileNameExt;
-	# file_put_contents(putFilePath, busterContent);
-	# getFilePath					= GLOBALS['deliveryPath']+'bustercache/'+str(bannerid)+'_'+fileNameExt
 	
-	# coreJs		    	= '<script src="'+GLOBALS['deliveryPath']+'assets/js/jQuery-2.1.4.min.js'+'" type="text/javascript"></script>'
-	# scriptFile 			= '<script src='+getFilePath+'></script>'
-	# ifm 				= "<script type='text/javascript'>var referenceabc	= '"+dfpClickUrl+"'</script>"
-	# return coreJs+scriptFile+ifm;
+	
+	
+	
+	busterTpl 						= open(filePath,'r')
+
+	busterContent   	    		= busterTpl.read()
+	
+	busterContent 					= busterContent.replace("{imagePath1}", creativeImage1);
+	if(banner['rich_media_type'] != 4):
+		busterContent 					= busterContent.replace("{imagePath2}", creativeImage2);
+	
+	busterContent 					= busterContent.replace("{clickurl}", dfpClickUrl);
+	busterContent 					= busterContent.replace("{lgimprTracker}", lgimprTracker);
+	busterContent 					= busterContent.replace("{thirdParyTracker}", thirdParyTracker);
+	
+	bannerid						= banner['bannerid'];
+	putFilePath 					= pydeliveryPath+'bustercache/'+str(bannerid)+'_'+fileNameExt;
+	#print(putFilePath)
+	#print(busterContent)
+	#sys.exit()
+	
+	busterWTpl 						= open(putFilePath,'w+')
+	busterWTpl.write(busterContent);
+	busterWTpl.close()
+	
+
+	getFilePath					= pydeliveryUrl+'bustercache/'+str(bannerid)+'_'+fileNameExt
+	
+	coreJs		    	= '<script src="'+pydeliveryUrl+'assets/js/jQuery-2.1.4.min.js'+'" type="text/javascript"></script>'
+	scriptFile 			= '<script src='+getFilePath+'></script>'
+	ifm 				= "<script type='text/javascript'>var referenceabc	= '"+dfpClickUrl+"'</script>"
+	return coreJs+scriptFile+ifm;
 
 
 def MAX_javascriptToHTML(string, varName, output = True, localScope = True):

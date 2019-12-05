@@ -1,1 +1,0 @@
-{"zoneid": "", "zonename": "ndtv", "zonetype": "default", "delivery": "web", "height": "250", "width": "300", "comments": "test comments", "description": "ndtv description", "affiliateid": 35}

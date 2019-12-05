@@ -9,16 +9,42 @@ from urlparse  import urlparse
 import hashlib
 import time
 import os
+import sys
 from random import randint
+from validate import Max_checkClient_Browser,Max_checkClient_Os,Max_checkDevice_Screen,Max_checkGeo_Country,Max_checkGeo_Region
+from validate import Max_checkGeo_City,Max_checkMobile_ISP,Max_checkClient_IP,Max_checkClient_Domain
+from campaignstatus import checkCampaignStatus
+
 
 
 def renderad():
-	d = parse_qs(os.environ['QUERY_STRING'])
+	qs = os.environ['QUERY_STRING']
+	d = parse_qs(qs)
 	zoneid = d.get('zoneid',[''])[0]
 	
 	
 	protocol			= ''
 	dfpClickUrl			= ''
+	if not(d.get('adurl',[''])[0] is None):
+		Original_url		= qs
+		first_index 		= Original_url.find("&click");
+		first_string 		= Original_url[first_index:]
+		second_index 		= first_string.find("&ord=")
+		dfpClickUrl 		= first_string[len("&click")+1:second_index]
+		#print(dfpClickUrl)
+		#print(len(dfpClickUrl))
+		#sys.exit()
+		#print(Original_url)
+		#print(first_index)
+		#print(first_string)
+		#print(second_index)
+		#print(dfpClickUrl)
+		#sys.exit()
+
+		
+	#print(dfpClickUrl)
+	#sys.exit()
+	
 	ip					= ''
 	iframe				= ''
 	
@@ -36,9 +62,33 @@ def renderad():
 	f.close();
 	
 	
-	#print(zonedata)
+	#print(bannerdata)
+	#sys.exit()
+	result  					= True
+
+	if(result):
+		result  					= True
+		row							= {}
+		row['acl_plugins']			= bannerdata['acl_plugins']
+		if(not(row['acl_plugins'] is None) ):
+			acl_plugins = bannerdata['compiledlimitation'].split('and')
+			for acl_plugin in acl_plugins:
+				result 		= eval(acl_plugin.strip())
+				#print(acl_plugin)
+				if(not result):
+					break
+	else:
+		result  			= False
 	
-	renderdata		= bannerCode(bannerdata,zoneid,protocol,dfpClickUrl,ip,iframe)
+	#print(result)
+	#sys.exit()
+	
+	if result :
+		renderdata				= bannerCode(bannerdata,zoneid,protocol,dfpClickUrl,ip,iframe)
+
+	else:
+		renderdata 				= ''
+	
 	
 	varString 	= 	hashlib.md5(str(randint(100, 999)).encode())
 	var			= varString.hexdigest()
@@ -49,12 +99,24 @@ def renderad():
 	
 def bannerCode(banner, zoneid, protocol, dfpClickUrl, ip,iframe):
 	src			= "https://api.onetracky.com/cgi-bin/delivery/"
-	mediaUrl 	= "http://onetracky.com/pydelivery/"
-	parsed_uri 	= urlparse('https://stackoverflow.com/questions/1234567/blah-blah-blah-blah')
+	mediaUrl 	= "https://onetracky.com/pydelivery/"
 	
+	# try:
+		# if(os.environ['HTTPS'] == 'on'):
+			# src			= "https://api.onetracky.com/cgi-bin/delivery/"
+			# mediaUrl 	= "https://onetracky.com/pydelivery/"
 
-	if(parsed_uri.scheme == 'https'):
-		src	= src.replace('https','http')
+
+	# except:
+		# #src			= src.replace('https','http')
+		# #mediaUrl	= mediaUrl.replace('https','http')
+		# src			= "https://api.onetracky.com/cgi-bin/delivery/"
+		# mediaUrl 	= "https://onetracky.com/pydelivery/"
+		
+		
+	# print(os.environ['HTTPS'])
+	# print(src)
+	# sys.exit()
 	
 
 	cbString 	= hashlib.md5(str(randint(100, 999)).encode())
@@ -79,7 +141,8 @@ def bannerCode(banner, zoneid, protocol, dfpClickUrl, ip,iframe):
 		trackingPixel = banner['tracking_pixel'].replace("{cache}", "buster");
 		player	+="<img src='"+trackingPixel+"' width='1' height='1' alt=''>";
 
-	
+	#print(player)
+	#sys.exit()
 	return player;
 
 	
@@ -88,10 +151,9 @@ def MAX_javascriptToHTML(string, varName, output = True, localScope = True):
 	jsLines = []
 	buffer	= ""
 	
-	
 	string 		= string.replace("\\","\\\\")
 	string 		= string.replace("\r",'')
-	string 		= string.replace('"','\\"')
+	string 		= string.replace('"','\"')
 	string 		= string.replace("'","\\'")
 	string 		= string.replace('<','<"+"')
 	
@@ -106,14 +168,13 @@ def MAX_javascriptToHTML(string, varName, output = True, localScope = True):
 	
 	buffer	+= 'var ' if localScope else ''
 	buffer	+= varName +" = '';\n"
-
 	
-	buffer += jsLines[0]
 	
+	if(jsLines):
+		buffer += jsLines[0]
 	
 	if (output == True):
 		buffer += "\ndocument.write("+varName+");\n";
-
 	return buffer;
 
 print(renderad())

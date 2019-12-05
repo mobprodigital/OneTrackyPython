@@ -1,1 +1,0 @@
-[{"today_delivered_impression":null,"campaign_status":"1"}]
