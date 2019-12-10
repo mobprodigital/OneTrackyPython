@@ -5,8 +5,8 @@ from user_agents import parse
 import geoip2.database
 import cgitb
 cgitb.enable()
-#from state import getState
-#from city import getCity
+from state import getState
+from city import getCity
 
 def Max_checkClient_Domain(inputType, compOpt):
 	
@@ -77,16 +77,31 @@ def Max_checkGeo_City(inputType, compOpt):
 	
 	
 	ipaddress 			= os.environ["REMOTE_ADDR"]
+	#ipaddress			='103.77.229.62'
+	# print(ipaddress)
+	# sys.exit()
 	reader 				= geoip2.database.Reader('limitation/GeoLite2-City.mmdb')
 	try:
 		response 				= reader.city(ipaddress)
 		userCountryCode			= response.country.iso_code
 		
+		
 		userStateCode			= response.subdivisions.most_specific.iso_code
 		stateName				= response.subdivisions.most_specific.name
+		
 		stateNumCode			= getState(userCountryCode,stateName)
+		
 		cityName				= response.city.name
+		# print(cityName)
+		# print(stateName)
+		
 		city					= getCity(stateName,cityName)
+		
+		#print(city)
+		#sys.exit()
+		
+		
+		
 		
 		
 		if(countryCode	== userCountryCode):
@@ -117,11 +132,6 @@ def Max_checkGeo_City(inputType, compOpt):
 		return False
 	finally:
 		reader.close()
-		
-		
-		
-
-
 
 def Max_checkGeo_Region(inputType, compOpt):
 	GeoArr  				= inputType.split(',')
@@ -131,6 +141,9 @@ def Max_checkGeo_Region(inputType, compOpt):
 
 
 	ipaddress 			= os.environ["REMOTE_ADDR"]
+	#ipaddress			= '169.149.12.64'
+	# print(ipaddress)
+	# sys.exit() 	
 	reader 				= geoip2.database.Reader('limitation/GeoLite2-City.mmdb')
 	try:
 		response 				= reader.city(ipaddress)
@@ -141,12 +154,12 @@ def Max_checkGeo_Region(inputType, compOpt):
 	
 		if(countryCode	== userCountryCode):
 			if(stateNumCode and GeoArr.count(stateNumCode) > 0):
-				return True;
+				return True
 			else:
-				return False;
-			return True;
+				return False
+			return True
 		else:
-			return False;
+			return False
 		return True
 				
 	except Exception:
@@ -155,28 +168,23 @@ def Max_checkGeo_Region(inputType, compOpt):
 		reader.close()
 
 
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-
 def Max_checkGeo_Country(inputType, compOpt):
 	ipaddress 			= os.environ["REMOTE_ADDR"]
+	
+	
+	
 	reader 				= geoip2.database.Reader('limitation/GeoLite2-Country.mmdb')
 	#reader 			= geoip2.database.Reader('C:/xampp/htdocs/django2adserver/delivery/core/limitation/GeoLite2-Country.mmdb')
 
 	try:
 		response 			= reader.country(ipaddress)
+		
 		countryCode			= response.country.iso_code
+		
 		key					= inputType.find(countryCode)
+		# print(ipaddress)
+		# print(countryCode)
+		# sys.exit()
 		if(key != -1 and compOpt =='=~'):
 			return True
 		else:
@@ -202,14 +210,13 @@ def Max_checkDevice_Screen(inputType, compOpt):
 	elif(user_agent.is_pc):
 		 screenType 	=  'desktop'
 	
-	
+	#print(screenType)
+	#sys.exit()
 	key		= inputType.find(screenType)
 	if(key != -1 and compOpt =='=~'):
 		return True
 	else:
 		return False
-
-
 
 
 def Max_checkClient_Os(inputType, compOpt):
@@ -279,11 +286,16 @@ def Max_checkClient_Browser(inputType, compOpt):
 	user_agent 			= os.environ["HTTP_USER_AGENT"]
 	user_agent 			= parse(user_agent)
 	browser				= user_agent.browser.family
-
+	mobileKey			= browser.find('Mobile')
+	if(mobileKey != -1):
+		browser			= browser.replace('Mobile','')
+		browser			= browser.strip()
 	
+	
+	#print(browser)
+	#sys.exit()
 	browserName			= browser.upper()
-	
-	browserSym			= '';
+	browserSym			= ''
 	if (aBrowserMap[browserName]):
 	   browserSym		= aBrowserMap[browserName]
 	
