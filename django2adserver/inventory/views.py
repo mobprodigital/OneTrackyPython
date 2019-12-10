@@ -74,7 +74,7 @@ def getComponents(request):
                     if(loopCount >= 1):
                         compiledLimit		= compiledLimit+' '+acl['logical']+' '
                     
-                    pluginsName		= acl['type'];
+                    pluginsName		= acl['type']
                     pluginsNameArr	= pluginsName.split(':')
                     compiledLimit 	= compiledLimit+'Max_check'+pluginsNameArr[1]+'_'+pluginsNameArr[2]	
                     aclPlugins		+= pluginsName+','
@@ -125,25 +125,12 @@ def getComponents(request):
             bannerData.save();
             
             assocData		= Banners.objects.get(pk=bannerid)
-            serializer 		= BannersSerializer(assocData)
-            jsonArr2		= serializer.data
-            
-            bannerCampaginCacheData							= getAssocOrderDetails(bannerid)
-            
-            
-            #print(bannerCampaginCacheData)
-            
-            
+            #print("hi")
             if(assocData):
-                filename		= deliveryCachePath+''+str(bannerid)+'.py'
-                f				= open(filename,"w+")
-                jsonArr 		= bannerCampaginCacheData
-                jsonString 		= json.dumps(jsonArr, indent=4, sort_keys=True, default=str)
-                f.write(jsonString)
-                f.close()
+               #print("hello")
+                updateDeliveryAd(bannerid)
         
         elif(token == 'new component'):
-        
             acls						= {}
             limitationDetails			= Banners.objects.get(pk=bannerid)
             
@@ -160,9 +147,10 @@ def getComponents(request):
                         length				= end - start
                         strlen				= len(limitations)
                         compStart			= strlen-4
-                                    
-                        limitValue			= limitations[start:length]
-                        comp				= limitations[compStart:2]
+						
+                        limitValue			= limitations[start:end]
+                        comp				= limitations[compStart:compStart+2]
+						
                         acl			= {
                             "ad_id"				: bannerid,
                             "comparison" 		: comp,
@@ -249,6 +237,7 @@ def getComponents(request):
     if (token == 'save component') or (token == 'delete component') or 	(token == 'get component'):
         acls						= {}
         limitationDetails			= Banners.objects.get(pk=bannerid)
+        
         if(len(limitationDetails.acl_plugins)):
             acl_plugins 				= limitationDetails.compiledlimitation.split('and')
             pluginData				    = limitationDetails.acl_plugins.split(',')
@@ -296,6 +285,7 @@ def getComponents(request):
     # print(acls)
 
     #print('hellllo')
+    #sys.exit(acls)
     components		= getLimitationComponent()
     aParams			= {'clientid':clientid,'campaignid':campaignid,'bannerid':bannerid}
     input			= MAX_displayAcls(acls, aParams)
@@ -397,7 +387,6 @@ def zonesInclude(request):
                             'ad_id' : bannerData.get('bannerid'),
                             "banner_status":bannerData.get('banner_status'),
                             "campaign_status":bannerData.get('campaign_status'),
-                            
                             'width' : zoneData.width,
                             'height' :  zoneData.height,
                             'type' : zoneData.delivery,
@@ -771,7 +760,7 @@ def advertiserDailyStats(request,pk):
     with connection.cursor() as cursor:
         # add day in group by condition by sunil
         sql ="SELECT DATE(s.date_time) AS day,c.clientid,clientname,SUM(s.impressions) AS impressions,SUM(s.clicks) AS clicks,SUM(s.requests) AS requests,SUM(s.total_revenue) AS revenue FROM inventory_clients AS c,inventory_campaigns AS m,inventory_banners AS b,inventory_rv_data_summary_ad_hourly AS s WHERE "+whereStr+"c.clientid = m.clientid AND m.campaignid = b.campaignid AND b.bannerid = s.creative_id  "+getWhereDate(oStartDate, oEndDate)+" GROUP BY c.clientid,day "
-        print(sql)
+        #print(sql)
         cursor.execute(sql)
         field_names = [item[0] for item in cursor.description]
         rawData = cursor.fetchall()
@@ -1207,7 +1196,7 @@ def webcampaignsDailyStats(request,pk,id):
 
 
 def getWhereDate(oStartDate, oEndDate, dateField = 's.date_time'):
-    where = '';
+    where = ''
     if (oStartDate and oStartDate):
         oStart = "'"+oStartDate+" 00:00:00 '"
         where += 'AND ' + dateField +' >= '+oStart
@@ -1220,7 +1209,7 @@ def getWhereDate(oStartDate, oEndDate, dateField = 's.date_time'):
         where += 'AND ' + dateField +' <= '+oEnd
         
     #print(where)
-    return where;
+    return where
 
 def AgetWhereDate(oStartDate, oEndDate, dateField = 'interval_start'):
     where = '';
@@ -1236,7 +1225,7 @@ def AgetWhereDate(oStartDate, oEndDate, dateField = 'interval_start'):
         where += ' AND ' + dateField +' <= '+oEnd
         
     #print(where)
-    return where;
+    return where
     
 
 

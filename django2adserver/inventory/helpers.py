@@ -4,6 +4,10 @@ from inventory.serializers import rv_ad_zone_assocSerializer
 from datetime import datetime,timedelta
 import json
 import sys
+from inventory.country import getCountry
+from inventory.state import getState
+from inventory.city import getCity
+import json, secrets, base64, hashlib
 
 
 deliveryCorePath		= 'https://api.onetracky.com/cgi-bin/delivery/core/';
@@ -322,7 +326,7 @@ def display(acl, count, bannerid, data):
 	limitationArr		= type.split(':')
 	#print(limitationArr)
 	#sys.exit(limitationArr)
-	displayName			= limitationArr[1]+' - '+limitationArr[2]
+	displayName				= limitationArr[1]+' - '+limitationArr[2]
 	#displayName			= limitationArr[0]+' - '+limitationArr[1]
 	#print("hi google")
 	#sys.exit(displayName)
